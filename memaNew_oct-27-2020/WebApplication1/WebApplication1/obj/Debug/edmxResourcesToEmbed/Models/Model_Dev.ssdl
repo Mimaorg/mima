@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Mima_Finance_DevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="Account_ID" />
+    </Key>
+    <Property Name="ID" Type="int" />
+    <Property Name="Account_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Account_No" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Bank">
+    <Key>
+      <PropertyRef Name="Bank_ID" />
+    </Key>
+    <Property Name="ID" Type="int" />
+    <Property Name="Bank_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Bank_Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Mima_Finance_Dev.dbo.Bank_LG' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Bank_LG">
+          <Property Name="Bank_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Current_Bank_Balance" Type="money" />
+        </EntityType>-->
+  <EntityType Name="Branch">
+    <Key>
+      <PropertyRef Name="Branch_ID" />
+    </Key>
+    <Property Name="ID" Type="int" />
+    <Property Name="Branch_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Branch" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Category_ID" />
+    </Key>
+    <Property Name="ID" Type="int" />
+    <Property Name="Category_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Category" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Cheque">
+    <Key>
+      <PropertyRef Name="Cheque_ID" />
+    </Key>
+    <Property Name="ID" Type="int" />
+    <Property Name="Cheque_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cheque_No" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Control">
+    <Key>
+      <PropertyRef Name="Control_ID" />
+    </Key>
+    <Property Name="ID" Type="int" />
+    <Property Name="Control_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Control" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Fact">
+    <Key>
+      <PropertyRef Name="Fact_ID" />
+    </Key>
+    <Property Name="Fact_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Bank_ID" Type="int" />
+    <Property Name="Branch_ID" Type="int" />
+    <Property Name="Org_ID" Type="int" />
+    <Property Name="Account_ID" Type="int" />
+    <Property Name="Paid_ID" Type="int" />
+    <Property Name="Control_ID" Type="int" />
+    <Property Name="Cheque_ID" Type="int" />
+    <Property Name="Voucher_ID" Type="int" />
+    <Property Name="Bill_ID" Type="int" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="T_Date" Type="datetime" />
+    <Property Name="Category_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Org">
+    <Key>
+      <PropertyRef Name="Org_ID" />
+    </Key>
+    <Property Name="ID" Type="int" />
+    <Property Name="Org_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Org_Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Paid_To">
+    <Key>
+      <PropertyRef Name="Paid_ID" />
+    </Key>
+    <Property Name="ID" Type="int" />
+    <Property Name="Paid_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Paid_To" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Transaction_Type">
+    <Key>
+      <PropertyRef Name="Trans_type_ID" />
+    </Key>
+    <Property Name="Trans_type_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Trans_Type" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Voucher">
+    <Key>
+      <PropertyRef Name="Voucher_ID" />
+    </Key>
+    <Property Name="ID" Type="int" />
+    <Property Name="Voucher_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Voucher_No" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Rupees" Type="varchar" MaxLength="1000" />
+    <Property Name="Description" Type="varchar" MaxLength="1000" />
+    <Property Name="Voucher_Type" Type="varchar" MaxLength="5" />
+    <Property Name="Transaction_Type" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Function Name="Debit_Credit_Logic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_Mima_Finance_Dev_BankList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_Mima_Finance_Dev_categoryBasedDropdown" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="categoryid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_Mima_Finance_Dev_SelectCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_APGL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="S_Date" Type="datetime" Mode="In" />
+    <Parameter Name="E_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Contractor" Type="int" Mode="In" />
+    <Parameter Name="Category" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Usp_APGL_Summary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Contractor" Type="varchar" Mode="In" />
+    <Parameter Name="Project" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Usp_BankGL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="S_Date" Type="datetime" Mode="In" />
+    <Parameter Name="E_Date" Type="datetime" Mode="In" />
+    <Parameter Name="BankID" Type="int" Mode="In" />
+    <Parameter Name="Category" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Usp_Populate_Account" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_Populate_Bank" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_Populate_Branch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_Populate_Category" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_Populate_Cheque" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_Populate_Control" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_Populate_Dev" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_Populate_Fact" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_Populate_Fact_OLD_Data" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_Populate_Org" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_Populate_Paid_To" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_Populate_Tables" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_Populate_Voucher" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Usp_Print_Grid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Contractor" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Usp_ProjectGL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="S_Date" Type="datetime" Mode="In" />
+    <Parameter Name="E_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Project" Type="int" Mode="In" />
+    <Parameter Name="Category" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="Mima_Finance_DevModelStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bank" EntityType="Self.Bank" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Branch" EntityType="Self.Branch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cheque" EntityType="Self.Cheque" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Control" EntityType="Self.Control" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fact" EntityType="Self.Fact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Org" EntityType="Self.Org" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Paid_To" EntityType="Self.Paid_To" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transaction_Type" EntityType="Self.Transaction_Type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Voucher" EntityType="Self.Voucher" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,47 @@
+﻿@*@model IEnumerable<WebApplication1.Models.Usp_APLG_Result>*@
+
+
+<table class="table table-bordered" id="myTable">
+    <thead>
+        <tr>
+            <th>S.no</th>
+            <th>Date</th>
+            <th>Vendor</th>
+            <th>Description</th>
+            <th>Project</th>
+            <th>Voucher_Type</th>
+            <th>Branch_Org</th>
+            <th>Voucher_No</th>
+            <th>Debit</th>
+            <th>Credit</th>
+            <th>Balance</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+            {
+
+            <tr>
+                <td>@item.id</td>
+                <td>@String.Format("{0:dd/MM/yyyy}", item.Date)</td>
+                <td>@item.Vendor</td>
+                <td>@item.Description</td>
+                <td>@item.Project</td>
+                <td>@item.Voucher_Type</td>
+                <td>@item.Branch_Org</td>
+                <td>@item.Voucher_No</td>
+                <td>@String.Format("{0:#,0}", (item.Debit == null ? 0 : item.Debit))</td>
+                <td>@String.Format("{0:#,0}", (item.Credit== null ? 0 : item.Credit))</td>
+                <td>@String.Format("{0:#,0}", (item.Balance == null ? 0 : item.Balance))</td>
+           
+            </tr>
+        }
+
+
+
+    </tbody>
+</table>
+
+
+

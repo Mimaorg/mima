@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Mima_Finance_DevModelStoreContainer" CdmEntityContainer="Mima_Finance_DevEntities">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="Mima_Finance_DevModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="Account_No" ColumnName="Account_No" />
+          <ScalarProperty Name="Account_ID" ColumnName="Account_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Banks">
+      <EntityTypeMapping TypeName="Mima_Finance_DevModel.Bank">
+        <MappingFragment StoreEntitySet="Bank">
+          <ScalarProperty Name="Bank_Name" ColumnName="Bank_Name" />
+          <ScalarProperty Name="Bank_ID" ColumnName="Bank_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Branches">
+      <EntityTypeMapping TypeName="Mima_Finance_DevModel.Branch">
+        <MappingFragment StoreEntitySet="Branch">
+          <ScalarProperty Name="Branch1" ColumnName="Branch" />
+          <ScalarProperty Name="Branch_ID" ColumnName="Branch_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="Mima_Finance_DevModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="Category1" ColumnName="Category" />
+          <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cheques">
+      <EntityTypeMapping TypeName="Mima_Finance_DevModel.Cheque">
+        <MappingFragment StoreEntitySet="Cheque">
+          <ScalarProperty Name="Cheque_No" ColumnName="Cheque_No" />
+          <ScalarProperty Name="Cheque_ID" ColumnName="Cheque_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Controls">
+      <EntityTypeMapping TypeName="Mima_Finance_DevModel.Control">
+        <MappingFragment StoreEntitySet="Control">
+          <ScalarProperty Name="Control1" ColumnName="Control" />
+          <ScalarProperty Name="Control_ID" ColumnName="Control_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facts">
+      <EntityTypeMapping TypeName="Mima_Finance_DevModel.Fact">
+        <MappingFragment StoreEntitySet="Fact">
+          <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+          <ScalarProperty Name="T_Date" ColumnName="T_Date" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Bill_ID" ColumnName="Bill_ID" />
+          <ScalarProperty Name="Voucher_ID" ColumnName="Voucher_ID" />
+          <ScalarProperty Name="Cheque_ID" ColumnName="Cheque_ID" />
+          <ScalarProperty Name="Control_ID" ColumnName="Control_ID" />
+          <ScalarProperty Name="Paid_ID" ColumnName="Paid_ID" />
+          <ScalarProperty Name="Account_ID" ColumnName="Account_ID" />
+          <ScalarProperty Name="Org_ID" ColumnName="Org_ID" />
+          <ScalarProperty Name="Branch_ID" ColumnName="Branch_ID" />
+          <ScalarProperty Name="Bank_ID" ColumnName="Bank_ID" />
+          <ScalarProperty Name="Fact_ID" ColumnName="Fact_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orgs">
+      <EntityTypeMapping TypeName="Mima_Finance_DevModel.Org">
+        <MappingFragment StoreEntitySet="Org">
+          <ScalarProperty Name="Org_Name" ColumnName="Org_Name" />
+          <ScalarProperty Name="Org_ID" ColumnName="Org_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paid_To">
+      <EntityTypeMapping TypeName="Mima_Finance_DevModel.Paid_To">
+        <MappingFragment StoreEntitySet="Paid_To">
+          <ScalarProperty Name="Paid_To1" ColumnName="Paid_To" />
+          <ScalarProperty Name="Paid_ID" ColumnName="Paid_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transaction_Type">
+      <EntityTypeMapping TypeName="Mima_Finance_DevModel.Transaction_Type">
+        <MappingFragment StoreEntitySet="Transaction_Type">
+          <ScalarProperty Name="Trans_Type" ColumnName="Trans_Type" />
+          <ScalarProperty Name="Trans_type_ID" ColumnName="Trans_type_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vouchers">
+      <EntityTypeMapping TypeName="Mima_Finance_DevModel.Voucher">
+        <MappingFragment StoreEntitySet="Voucher">
+          <ScalarProperty Name="Transaction_Type" ColumnName="Transaction_Type" />
+          <ScalarProperty Name="Voucher_Type" ColumnName="Voucher_Type" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Rupees" ColumnName="Rupees" />
+          <ScalarProperty Name="Voucher_No" ColumnName="Voucher_No" />
+          <ScalarProperty Name="Voucher_ID" ColumnName="Voucher_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Debit_Credit_Logic" FunctionName="Mima_Finance_DevModel.Store.Debit_Credit_Logic" />
+    <FunctionImportMapping FunctionImportName="sp_Mima_Finance_Dev_BankList" FunctionName="Mima_Finance_DevModel.Store.sp_Mima_Finance_Dev_BankList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Mima_Finance_DevModel.sp_Mima_Finance_Dev_BankList_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Bank_ID" ColumnName="Bank_ID" />
+          <ScalarProperty Name="Bank_Name" ColumnName="Bank_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Mima_Finance_Dev_categoryBasedDropdown" FunctionName="Mima_Finance_DevModel.Store.sp_Mima_Finance_Dev_categoryBasedDropdown">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Mima_Finance_DevModel.sp_Mima_Finance_Dev_categoryBasedDropdown_Result">
+          <ScalarProperty Name="Paid_ID" ColumnName="Paid_ID" />
+          <ScalarProperty Name="Paid_To" ColumnName="Paid_To" />
+          <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_Mima_Finance_Dev_SelectCategory" FunctionName="Mima_Finance_DevModel.Store.Sp_Mima_Finance_Dev_SelectCategory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Mima_Finance_DevModel.Sp_Mima_Finance_Dev_SelectCategory_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_APGL" FunctionName="Mima_Finance_DevModel.Store.Usp_APGL">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Mima_Finance_DevModel.Usp_APGL_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Project" ColumnName="Project" />
+          <ScalarProperty Name="Voucher_Type" ColumnName="Voucher_Type" />
+          <ScalarProperty Name="Branch_Org" ColumnName="Branch/Org" />
+          <ScalarProperty Name="Voucher_No" ColumnName="Voucher_No" />
+          <ScalarProperty Name="Debit" ColumnName="Debit" />
+          <ScalarProperty Name="Credit" ColumnName="Credit" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_APGL_Summary" FunctionName="Mima_Finance_DevModel.Store.Usp_APGL_Summary">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Mima_Finance_DevModel.Usp_APGL_Summary_Result">
+          <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+          <ScalarProperty Name="Project" ColumnName="Project" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Debit" ColumnName="Debit" />
+          <ScalarProperty Name="Credit" ColumnName="Credit" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_BankGL" FunctionName="Mima_Finance_DevModel.Store.Usp_BankGL">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Mima_Finance_DevModel.Usp_BankGL_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Bank" ColumnName="Bank" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Project" ColumnName="Project" />
+          <ScalarProperty Name="Cheque_No" ColumnName="Cheque_No" />
+          <ScalarProperty Name="Debit" ColumnName="Debit" />
+          <ScalarProperty Name="Credit" ColumnName="Credit" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_Populate_Account" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Account" />
+    <FunctionImportMapping FunctionImportName="Usp_Populate_Bank" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Bank" />
+    <FunctionImportMapping FunctionImportName="Usp_Populate_Branch" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Branch" />
+    <FunctionImportMapping FunctionImportName="Usp_Populate_Category" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Category" />
+    <FunctionImportMapping FunctionImportName="Usp_Populate_Cheque" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Cheque" />
+    <FunctionImportMapping FunctionImportName="Usp_Populate_Control" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Control" />
+    <FunctionImportMapping FunctionImportName="Usp_Populate_Dev" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Dev" />
+    <FunctionImportMapping FunctionImportName="Usp_Populate_Fact" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Fact" />
+    <FunctionImportMapping FunctionImportName="Usp_Populate_Fact_OLD_Data" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Fact_OLD_Data" />
+    <FunctionImportMapping FunctionImportName="Usp_Populate_Org" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Org" />
+    <FunctionImportMapping FunctionImportName="Usp_Populate_Paid_To" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Paid_To" />
+    <FunctionImportMapping FunctionImportName="Usp_Populate_Tables" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Tables" />
+    <FunctionImportMapping FunctionImportName="Usp_Populate_Voucher" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Voucher" />
+    <FunctionImportMapping FunctionImportName="Usp_Print_Grid" FunctionName="Mima_Finance_DevModel.Store.Usp_Print_Grid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Mima_Finance_DevModel.Usp_Print_Grid_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Project" ColumnName="Project" />
+          <ScalarProperty Name="Voucher_Type" ColumnName="Voucher_Type" />
+          <ScalarProperty Name="Branch_Org" ColumnName="Branch/Org" />
+          <ScalarProperty Name="Voucher_No" ColumnName="Voucher_No" />
+          <ScalarProperty Name="Detib" ColumnName="Detib" />
+          <ScalarProperty Name="Credit" ColumnName="Credit" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_ProjectGL" FunctionName="Mima_Finance_DevModel.Store.Usp_ProjectGL">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Mima_Finance_DevModel.Usp_ProjectGL_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Project" ColumnName="Project" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+          <ScalarProperty Name="Voucher_Type" ColumnName="Voucher_Type" />
+          <ScalarProperty Name="Voucher_No" ColumnName="Voucher_No" />
+          <ScalarProperty Name="Debit" ColumnName="Debit" />
+          <ScalarProperty Name="Credit" ColumnName="Credit" />
+          <ScalarProperty Name="Balance__" ColumnName="Balance&#xD;&#xA;" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
