@@ -1,0 +1,69 @@
+﻿<nav class="navbar navbar-expand-sm bg-light">
+
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index", "Home")">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Dashboards</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" id="1Dash" href="@Url.Action("index", "Dashboard")">Bank Payment</a>
+                <a class="dropdown-item" id="2Dash" href="@Url.Action("CashDashboard", "Dashboard")">Cash Payment</a>
+
+                <a class="dropdown-item spCall" id="2Dash" href="@Url.Action("Index", "BankLG")">Bank GL</a>
+                <a class="dropdown-item spCall" id="2Dash" href="@Url.Action("Usp_APLG", "BankLG")">General Ledger</a>
+                <a class="dropdown-item spCall" id="2Dash" href="@Url.Action("Usp_ProjectLG", "BankLG")">Project GL</a>
+
+                @*<a class="dropdown-item" id="2Dash" href="@Url.Action("Index", "Dashboard")">Cash Payment</a>*@
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Reciept</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" id="1Dash" href="@Url.Action("BankRecieptList", "Reciept")">Bank Reciepts</a>
+                <a class="dropdown-item" id="2Dash" href="@Url.Action("CashRecieptList", "Reciept")">Cash Reciepts</a>
+                @*<a class="dropdown-item" id="2Dash" href="@Url.Action("Index", "Dashboard")">Cash Payment</a>*@
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Bills</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" id="" href="@Url.Action("vBilling", "Billing")">Verified Bills</a>
+                <a class="dropdown-item" id="" href="@Url.Action("UnVerifiedBillsV", "Billing")">UnVerified Bills</a>
+                <a class="dropdown-item" id="" href="@Url.Action("projectBills", "Billing")">Project Bills</a>
+            </div>
+        </li>
+
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Pending</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" id="1Dash" href="@Url.Action("pendingRecord", "Home")">Bank Pending</a>
+                <a class="dropdown-item" id="2Dash" href="@Url.Action("CashpendingRecord", "Home")">Cash Pending</a>
+                @*<a class="dropdown-item" id="2Dash" href="@Url.Action("Index", "Dashboard")">Cash Payment</a>*@
+            </div>
+        </li>
+
+      
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Settings</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="@Url.Action("Index", "Settings")">Add Bank</a>
+                <a class="dropdown-item" href="@Url.Action("paidToIndex", "Settings")">Add Vendor</a>
+                <a class="dropdown-item" href="@Url.Action("ControlIndex", "Settings")">Add Control</a>
+                @*<a class="dropdown-item" id="2Dash" href="@Url.Action("Index", "Dashboard")">Cash Payment</a>*@
+            </div>
+        </li>
+
+
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Logout", "Login")">Logout</a>
+        </li>
+    </ul>
+
+</nav>
