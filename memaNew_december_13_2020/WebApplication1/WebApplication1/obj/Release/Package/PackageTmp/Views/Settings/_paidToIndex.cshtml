@@ -1,0 +1,35 @@
+﻿@model IEnumerable <WebApplication1.Models.Paid_to_Details>
+
+<table class="table table-bordered" id="myTable">
+    <thead>
+        <tr>
+
+            <th>Vendor ID</th>
+            <th>Vendor</th>>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.Paid_to_ID</td>
+                <td>@item.Paid_to</td>           
+                
+
+                <td>
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-primary BtnEdit" id="@item.Paid_to_ID">Update/View</a>
+                        @*<a href="@Url.Action("BankPaymentVoucherSubmitByID", "Edit", new { id = item.Bank_ID })" Class="btn btn-primary" pendingRecordId="@item.Bank_ID">Submit</a>*@
+
+                    </div>
+                </td>
+            </tr>
+        }
+
+
+
+    </tbody>
+</table>
+
+

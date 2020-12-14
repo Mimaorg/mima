@@ -14,8 +14,8 @@ namespace WebApplication1.Models
     
     public partial class Account
     {
-        public Nullable<int> ID { get; set; }
-        public int Account_ID { get; set; }
-        public string Account_No { get; set; }
+        public int id { get; set; }
+        public Nullable<int> bankId { get; set; }
+        public string accountNumber { get; set; }
     }
 }

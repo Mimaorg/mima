@@ -175,7 +175,8 @@
                                 debugger;
                                 $(".loader").hide();
                                 $("#BankList").show();
-                                Datatable()
+                                
+                                Datatable();
                                
                             },
 
@@ -197,8 +198,8 @@
 
                         filterRecord();
                         loadproject();
-                        checkUncheckonColumnHideShow();
-                        hideshowColumnsname();
+                        //checkUncheckonColumnHideShow();
+                        //hideshowColumnsname();
 
                     })//end of document ready
                     function filterRecord() {
@@ -230,7 +231,9 @@
                                     debugger;
                                     $("#BankList").html(d);
                                     $("#myModal").modal("hide");
-                               
+                                    convertMinustoBrackets();
+                                    checkUncheckonColumnHideShow();
+                                    hideshowColumnsname();
                                     Datatable();
                                 },
 
@@ -349,11 +352,15 @@
                         var table = $('#myTable').DataTable({
                             //dom: 'Bfrtip',
                             dom: 'Blrtip',
+                            //dom : "lrtip",
                             responsive: true,
                             paging: true,
+                            bAutoWidth: false ,
                             buttons: ['csv', 'excel', 'pdf'],
+                            //buttons: ['excelHtml5'],
                             pageLength: 50,
-                            lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]]
+                            lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                            //searching: true
                             //order: [[0, 'desc'], [1, 'desc']]
                         });
                         new $.fn.dataTable.FixedHeader(table);
@@ -367,12 +374,31 @@
                             // Toggle the visibility
                             column.visible(!column.visible());
                         });
+                       
                     }
                     function hideshowColumnsname() {
 
                         $("#barclick").click(function () {
                             debugger;
                             $("#columnnameshowhide").toggle();
+                        });
+                    }
+                    function convertMinustoBrackets() {
+                        debugger
+                        $('#myTable tr').each(function() {
+                            debugger;
+                            var balance = $(this).find("td").eq(12).html();
+                            
+                            var stn = ""+balance;
+                            if (stn.indexOf('-') != -1) {
+                               var newStn = stn.replace("-", "");
+                               $(this).find("td").eq(12).html("(" + newStn + ")");
+
+                            } else {
+
+                                $(this).find("td").eq(12).html(balance);
+                            }
+
                         });
                     }
     </script>

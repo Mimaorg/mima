@@ -63,12 +63,12 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Date</th>
+            <th style="width:11%">Date</th>
             <th>Vendor</th>
             <th>Description</th>
-            <th>Category</th>
+            <th>Cat.</th>
             <th>Project</th>
-            <th>V.Type</th>
+            <th>V.T</th>
             <th>B/O</th>
             <th>V.No</th>
             <th>UV</th>
@@ -78,28 +78,37 @@
         </tr>
     </thead>
     <tbody>
+        @{ 
+            string formatedBalance ="";
 
+        }
         @foreach (var item in Model)
         {
+            ////item.Balance = 20000;
+            //var withcomaa = String.Format("{0:#,0}", ( item.Balance == null ? 0 : item.Balance));
+            //formatedBalance = withcomaa.Contains("-") == true ? "(" + item.Balance.ToString() + ")" : item.Balance.ToString();
 
             <tr>
-                <td>@item.id</td>
-                <td>@String.Format("{0:dd/MM/yyyy}", @item.Date)</td>
+                <td style="font-size:small">@item.id</td>
+                <td style="font-size:small">@String.Format("{0:dd/MM/yyyy}", @item.Date)</td>
                 @*<td>@item.Date</td>*@
-                <td>@item.Vendor</td>
-                <td>@item.Description</td>
-                <td>@item.Category</td>
-                <td>@item.Project</td>
-                <td>@item.V_Type</td>
-                <td>@item.B_O</td>
-                <td>@item.V_No</td>
-                <td>@item.UV</td>
-                <td>@String.Format("{0:#,0}", (item.Debit == null ? 0 : item.Debit))</td>
-                <td>@String.Format("{0:#,0}", (item.Debit == null ? 0 : item.Credit))</td>
-                <td>@String.Format("{0:#,0}", (item.Debit == null ? 0 : item.Balance))</td>
+                <td style="font-size:small">@item.Vendor</td>
+                <td style="font-size:small">@item.Description</td>
+                <td style="font-size:small">@item.Category</td>
+                <td style="font-size:small">@item.Project</td>
+                <td style="font-size:small">@item.V_Type</td>
+                <td style="font-size:small">@item.B_O</td>
+                <td style="font-size:small">@item.V_No</td>
+                <td style="font-size:small">@String.Format("{0:#,0}", (item.UV == null ? 0 : item.UV))</td>
+                <td style="font-size:small">@String.Format("{0:#,0}", (item.Debit == null ? 0 : item.Debit))</td>
+                <td style="font-size:small">@String.Format("{0:#,0}", (item.Credit == null ? 0 : item.Credit))</td>
+                <td style="font-size:small">@String.Format("{0:#,0}", ( item.Balance == null ? 0 : item.Balance))</td>
+                
 
-            </tr>
-        }
+
+                
+</tr>
+                    }
 
     </tbody>
 </table>

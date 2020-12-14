@@ -14,8 +14,10 @@ namespace WebApplication1.Models
     
     public partial class Branch
     {
-        public Nullable<int> ID { get; set; }
-        public int Branch_ID { get; set; }
-        public string Branch1 { get; set; }
+        public int BankID { get; set; }
+        public string BarnchName { get; set; }
+        public string BankAddress { get; set; }
+        public string BranchName { get; set; }
+        public string BranchCode { get; set; }
     }
 }

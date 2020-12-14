@@ -14,8 +14,7 @@ namespace WebApplication1.Models
     
     public partial class Category
     {
-        public Nullable<int> ID { get; set; }
-        public int Category_ID { get; set; }
+        public int CategoryID { get; set; }
         public string Category1 { get; set; }
     }
 }
