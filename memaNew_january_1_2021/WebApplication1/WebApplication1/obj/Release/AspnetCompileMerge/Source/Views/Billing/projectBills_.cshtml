@@ -1,0 +1,48 @@
+﻿
+@model IEnumerable<WebApplication1.Models.Billing>
+<table class="table table-bordered" id="myTable">
+    <thead>
+        <tr>
+            <th>Bill_id</th>
+            @*<th>Name</th>*@
+            <th>Category</th>
+            <th>Control</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            string amount = string.Format("{0:#,0}", (item.Amount == null ? 0 : item.Amount));     // 123,000,000
+            <tr>
+                <td>@item.Bill_id</td>
+                @*<td>@item.Name</td>*@
+                <td>@item.Category</td>
+                <td>@item.Control</td>
+                <td>@amount</td>
+                <td>@String.Format("{0:dd/MM/yyyy}", @item.Date)</td>
+
+
+                <td>
+                    <div class="btn-group">
+                        <a href="~/Billing/AddProjectBill/image/@item.imgPath" target="_blank" class="btn btn-primary" id="@item.id">Image</a>
+                        <a href="#" class="btn btn-primary BtnEdit" isMove="0" id="@item.id">View</a>
+                        @*<a href="#" class="btn btn-primary BtnEdit" isMove="1" id="@item.id">Move</a>*@
+                        @*<a href="@Url.Action("BankPaymentVoucherSubmitByID", "Edit", new { id = item.Bank_ID })" Class="btn btn-primary" pendingRecordId="@item.Bank_ID">Submit</a>*@
+
+                    </div>
+                </td>
+            </tr>
+        }
+
+
+
+    </tbody>
+</table>
+
+
+
+

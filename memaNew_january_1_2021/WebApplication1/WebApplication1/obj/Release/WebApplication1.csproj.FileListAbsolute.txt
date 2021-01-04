@@ -1,0 +1,504 @@
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\ApplicationInsights.config
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\roslyn\csc.exe
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\roslyn\System.Collections.Immutable.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\roslyn\System.Reflection.Metadata.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\roslyn\vbc.exe
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe.config
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\WebApplication1.dll.config
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\WebApplication1.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\WebApplication1.pdb
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Antlr3.Runtime.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\EntityFramework.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\itextsharp.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AI.DependencyCollector.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AI.Web.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AI.WindowsServer.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.ApplicationInsights.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Google.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Web.Infrastructure.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Newtonsoft.Json.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Owin.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\System.Web.Helpers.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\System.Web.Mvc.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\System.Web.Optimization.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\System.Web.Razor.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\System.Web.WebPages.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\WebGrease.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\itextsharp.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AI.DependencyCollector.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AI.Web.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AI.WindowsServer.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.ApplicationInsights.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\System.Web.Helpers.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\System.Web.Mvc.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\System.Web.Optimization.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\System.Web.Razor.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\System.Web.WebPages.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Antlr3.Runtime.pdb
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Newtonsoft.Json.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\EntityFramework.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Google.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\obj\Release\WebApplication1.csprojResolveAssemblyReference.cache
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\obj\Release\WebApplication1.dll
+D:\Hamdan\Mima vouchers Project\Mima_6-26-2020\memaNew\WebApplication1\WebApplication1\obj\Release\WebApplication1.pdb
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\ApplicationInsights.config
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\roslyn\csc.exe
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\roslyn\System.Collections.Immutable.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\roslyn\System.Reflection.Metadata.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\roslyn\vbc.exe
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe.config
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\WebApplication1.dll.config
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\WebApplication1.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\WebApplication1.pdb
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Antlr3.Runtime.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\EntityFramework.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\itextsharp.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AI.Agent.Intercept.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AI.DependencyCollector.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AI.Web.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AI.WindowsServer.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.ApplicationInsights.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Core.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Cookies.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Facebook.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Google.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.OAuth.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Twitter.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Web.Infrastructure.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Newtonsoft.Json.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Owin.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\System.Web.Helpers.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\System.Web.Mvc.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\System.Web.Optimization.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\System.Web.Razor.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\System.Web.WebPages.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\WebGrease.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\itextsharp.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AI.DependencyCollector.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AI.Web.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AI.WindowsServer.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.ApplicationInsights.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\System.Web.Helpers.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\System.Web.Mvc.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\System.Web.Optimization.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\System.Web.Razor.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\System.Web.WebPages.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Antlr3.Runtime.pdb
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Newtonsoft.Json.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\EntityFramework.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Core.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Facebook.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Cookies.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.OAuth.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Google.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Twitter.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\obj\Release\WebApplication1.csprojResolveAssemblyReference.cache
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\obj\Release\WebApplication1.dll
+E:\memaNewDesign\memaNew\WebApplication1\WebApplication1\obj\Release\WebApplication1.pdb
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\ApplicationInsights.config
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\roslyn\csc.exe
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\roslyn\System.Collections.Immutable.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\roslyn\System.Reflection.Metadata.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\roslyn\vbc.exe
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe.config
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\WebApplication1.dll.config
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\WebApplication1.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\WebApplication1.pdb
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Antlr3.Runtime.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\EntityFramework.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\itextsharp.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.AI.DependencyCollector.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.AI.Web.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.AI.WindowsServer.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.ApplicationInsights.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Google.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.Web.Infrastructure.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Newtonsoft.Json.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Owin.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\System.Web.Helpers.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\System.Web.Mvc.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\System.Web.Optimization.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\System.Web.Razor.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\System.Web.WebPages.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\WebGrease.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\itextsharp.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.AI.DependencyCollector.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.AI.Web.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.AI.WindowsServer.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.ApplicationInsights.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\System.Web.Helpers.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\System.Web.Mvc.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\System.Web.Optimization.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\System.Web.Razor.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\System.Web.WebPages.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Antlr3.Runtime.pdb
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Newtonsoft.Json.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\EntityFramework.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Google.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\obj\Release\WebApplication1.csprojResolveAssemblyReference.cache
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\obj\Release\WebApplication1.dll
+D:\Project\memaNew_8-26-2020\WebApplication1\WebApplication1\obj\Release\WebApplication1.pdb
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\ApplicationInsights.config
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\roslyn\csc.exe
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\roslyn\System.Collections.Immutable.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\roslyn\System.Reflection.Metadata.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\roslyn\vbc.exe
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe.config
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\WebApplication1.dll.config
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\WebApplication1.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\WebApplication1.pdb
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Antlr3.Runtime.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\EntityFramework.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\itextsharp.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.AI.DependencyCollector.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.AI.Web.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.AI.WindowsServer.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.ApplicationInsights.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Google.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.Web.Infrastructure.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Newtonsoft.Json.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Owin.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\System.Web.Helpers.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\System.Web.Mvc.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\System.Web.Optimization.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\System.Web.Razor.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\System.Web.WebPages.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\WebGrease.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\itextsharp.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.AI.DependencyCollector.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.AI.Web.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.AI.WindowsServer.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.ApplicationInsights.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\System.Web.Helpers.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\System.Web.Mvc.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\System.Web.Optimization.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\System.Web.Razor.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\System.Web.WebPages.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Antlr3.Runtime.pdb
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Newtonsoft.Json.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\EntityFramework.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Google.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\obj\Release\WebApplication1.csprojResolveAssemblyReference.cache
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\obj\Release\WebApplication1.dll
+D:\Project\memaNew_sep-10-2020\WebApplication1\WebApplication1\obj\Release\WebApplication1.pdb
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\ApplicationInsights.config
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\roslyn\csc.exe
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\roslyn\System.Collections.Immutable.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\roslyn\System.Reflection.Metadata.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\roslyn\vbc.exe
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe.config
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\WebApplication1.dll.config
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\WebApplication1.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\WebApplication1.pdb
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Antlr3.Runtime.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\EntityFramework.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\itextsharp.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.AI.DependencyCollector.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.AI.Web.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.AI.WindowsServer.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.ApplicationInsights.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Google.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.Web.Infrastructure.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Newtonsoft.Json.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Owin.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\System.Web.Helpers.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\System.Web.Mvc.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\System.Web.Optimization.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\System.Web.Razor.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\System.Web.WebPages.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\WebGrease.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\itextsharp.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.AI.DependencyCollector.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.AI.Web.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.AI.WindowsServer.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.ApplicationInsights.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\System.Web.Helpers.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\System.Web.Mvc.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\System.Web.Optimization.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\System.Web.Razor.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\System.Web.WebPages.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Antlr3.Runtime.pdb
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Newtonsoft.Json.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\EntityFramework.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Google.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\obj\Release\WebApplication1.csprojResolveAssemblyReference.cache
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\obj\Release\WebApplication1.dll
+D:\Project\memaNew_december_13_2020\WebApplication1\WebApplication1\obj\Release\WebApplication1.pdb
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\ApplicationInsights.config
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\roslyn\csc.exe
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\roslyn\System.Collections.Immutable.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\roslyn\System.Reflection.Metadata.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\roslyn\vbc.exe
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe.config
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\WebApplication1.dll.config
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\WebApplication1.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\WebApplication1.pdb
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Antlr3.Runtime.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\EntityFramework.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\itextsharp.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.AI.DependencyCollector.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.AI.Web.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.AI.WindowsServer.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.ApplicationInsights.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.Owin.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Google.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.Web.Infrastructure.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Newtonsoft.Json.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Owin.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\System.Web.Helpers.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\System.Web.Mvc.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\System.Web.Optimization.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\System.Web.Razor.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\System.Web.WebPages.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\WebGrease.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\itextsharp.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.AI.DependencyCollector.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.AI.Web.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.AI.WindowsServer.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.ApplicationInsights.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\System.Web.Helpers.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\System.Web.Mvc.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\System.Web.Optimization.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\System.Web.Razor.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\System.Web.WebPages.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Antlr3.Runtime.pdb
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Newtonsoft.Json.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\EntityFramework.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.Owin.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Google.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\obj\Release\WebApplication1.csprojResolveAssemblyReference.cache
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\obj\Release\WebApplication1.dll
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\obj\Release\WebApplication1.pdb

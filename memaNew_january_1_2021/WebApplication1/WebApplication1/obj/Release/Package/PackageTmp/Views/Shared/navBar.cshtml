@@ -1,0 +1,208 @@
+﻿
+
+<nav class="navbar navbar-expand-sm bg-light">
+    
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index", "Home")">Home</a>
+        </li>
+
+        <li class="nav-item dropdown" id="dashboardDiv">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Dashboards</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" id="1Dash" href="@Url.Action("index", "Dashboard")">Bank Payment</a>
+                <a class="dropdown-item" id="2Dash" href="@Url.Action("CashDashboard", "Dashboard")">Cash Payment</a>
+
+                <a class="dropdown-item spCall" id="2Dash" href="@Url.Action("Index", "BankLG")">Bank GL</a>
+                <a class="dropdown-item spCall" id="2Dash" href="@Url.Action("Usp_APLG", "BankLG")">General Ledger</a>
+                @*<a class="dropdown-item spCall" id="2Dash" href="@Url.Action("Usp_ProjectLG", "BankLG")">Project GL</a>*@
+                
+
+                <a class="dropdown-item spCall" id="2Dash" href="@Url.Action("market", "BankLG")">Market</a>
+                <a class="dropdown-item spCall" id="2Dash" href="@Url.Action("projectcost", "BankLG")">Project Cost</a>
+                <a class="dropdown-item spCall" id="2Dash" href="@Url.Action("projectrevenu", "BankLG")">Project Revenu</a>
+
+
+                @*<a class="dropdown-item" id="2Dash" href="@Url.Action("Index", "Dashboard")">Cash Payment</a>*@
+            </div>
+        </li>
+
+        <li class="nav-item dropdown" id="recieptDiv">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Reciept</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" id="1Dash" href="@Url.Action("BankRecieptList", "Reciept")">Bank Reciepts</a>
+                <a class="dropdown-item" id="2Dash" href="@Url.Action("CashRecieptList", "Reciept")">Cash Reciepts</a>
+                @*<a class="dropdown-item" id="2Dash" href="@Url.Action("Index", "Dashboard")">Cash Payment</a>*@
+            </div>
+        </li>
+
+        <li class="nav-item dropdown" id="billsDiv">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Bills</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" id="" href="@Url.Action("vBilling", "Billing")">Verified Bills</a>
+                <a class="dropdown-item" id="" href="@Url.Action("UnVerifiedBillsV", "Billing")">UnVerified Bills</a>
+              
+                  <a class="dropdown-item" id="" href="@Url.Action("projectBills", "Billing")">Project Bills</a>
+                <a class="dropdown-item" id="" href="@Url.Action("unverifiedprojectBills", "Billing")">Project UnVerified Bills</a>
+            </div>
+        </li>
+
+
+        <li class="nav-item dropdown" id="pendingRecordDiv">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Pending</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" id="1Dash" href="@Url.Action("pendingRecord", "Home")">Bank Pending</a>
+                <a class="dropdown-item" id="2Dash" href="@Url.Action("CashpendingRecord", "Home")">Cash Pending</a>
+                @*<a class="dropdown-item" id="2Dash" href="@Url.Action("Index", "Dashboard")">Cash Payment</a>*@
+            </div>
+        </li>
+
+      
+
+        <li class="nav-item dropdown" id="settingDiv">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Settings</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="@Url.Action("Index", "Settings")">Add Bank</a>
+                <a class="dropdown-item" href="@Url.Action("paidToIndex", "Settings")">Add Vendor</a>
+                <a class="dropdown-item" href="@Url.Action("ControlIndex", "Settings")">Add Control</a>
+                @*<a class="dropdown-item" id="2Dash" href="@Url.Action("Index", "Dashboard")">Cash Payment</a>*@
+            </div>
+        </li>
+
+        @{
+
+            var userRole = Session["userRole"].ToString();
+
+            if (userRole == "Executive")
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("allUsers", "Users")">Users</a>
+                </li>
+            }
+        }
+
+
+        <li class="nav-item" id="showpasswordmodal">
+            <a class="nav-link" href="javascript:;">Change Password</a>
+        </li>
+
+        <li class="nav-item" id="logoutDiv">
+            <a class="nav-link" href="@Url.Action("Logout", "Login")">Logout</a>
+        </li>
+    </ul>
+
+</nav>
+
+
+
+<!-- The Modal -->
+<div class="modal" id="changePasswordmodal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Chagne Password</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form id="changepassform">
+                    <input type="hidden" value="@Session["UserDetails"]" id="hiddenid" />
+                    <div class="form-group">
+                        <label>Current Password</label>
+                        <input type="text" class="form-control" id="oldpass">
+                    </div>
+                    <div class="form-group">
+                        <label>New Pssword:</label>
+                        <input type="text" class="form-control"  id="newpass">
+                    </div>
+                  
+                    <button type="button" id="changepassword" class="btn btn-primary">Change</button>
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script>
+
+    $(document).ready(function () {
+        var sValue = @Session["UserDetails"] || null;
+        //var userRole = Session["userRole"] || null;
+        $("#showpasswordmodal").click(function () {
+
+            $("#changePasswordmodal").modal("show");
+
+        })
+
+
+        ////
+        $("#changepassword").click(function () {
+            debugger;
+            var isEmpty = false;
+            $("#changepassform").find("input").each(function () {
+                debugger;
+
+                if ($(this).val() == "") {
+
+                    $(this).css('border-color', 'red');
+                    isEmpty = true;
+
+                } else {
+                    $(this).css('border-color', 'white');
+
+                }
+
+            })
+            if (!isEmpty) { 
+                var objforcontroller = {};
+                objforcontroller.id = $("#hiddenid").val();
+                objforcontroller.newpass= $("#newpass").val();
+                objforcontroller.oldpass= $("#oldpass").val();
+               
+                debugger;
+                var async = false;
+                var dataType = "JSON";
+                var postType = "POST";
+                var Controller = "Users";
+                var Method = "changepassword"
+                $.ajax({
+                    type: postType,
+                    url: "/" + Controller + "/" + Method,
+                    datatype: dataType,
+                    data: objforcontroller,
+                    async: async,
+                    success: function (d) {
+                       debugger
+                        alert(d)
+                    },
+
+                    error: function (error) {
+                        debugger;
+                        console.log(error);
+                    }
+                });
+            }
+        })
+        ///////
+
+      
+
+
+    })
+   
+</script>

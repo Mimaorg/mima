@@ -1,0 +1,164 @@
+﻿
+@model WebApplication1.Models.UnVerified_project_bills
+<input type="hidden" id="verifyBillsId" value="@ViewBag.verifyBillId">
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">New Bill</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            @*<input type="hidden" name="Bank_ID" />*@
+
+            <!-- Modal body -->
+            <div class="modal-body">
+
+                @using (Html.BeginForm("AddProjectBillunverified", "Billing", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+
+                    @Html.HiddenFor(model => model.id)
+                    <input type="hidden" id="unVerifedbillSQLid" name="unVerifedbillSQLid" />
+                    <div class="form-group">
+                        <label for="Bank">Bill ID:</label>
+
+                        @if (!ViewBag.isAutoId)
+                        {
+
+                            @Html.TextBoxFor(model => model.Bill_id, new { @class = "form-control", @readonly = "readonly" })
+
+                        }
+                        else
+                        {
+
+                            @Html.TextBoxFor(model => model.Bill_id, new { @class = "form-control", @readonly = "readonly", Value = ViewBag.vNum })
+
+                        }
+                    </div>
+
+                    <div class="form-group">
+                        @*<label for="Organization">Vendor:</label>*@
+                        @*@Html.TextBoxFor(model => model.Name, new { @class = "form-control" })*@
+                        @*<select class="form-control" id="Name" name="Name">
+                                @{
+                                    foreach (var item in ViewBag.paidTo)
+                                    {
+
+                                        <option value="@item.Paid_to">@item.Paid_to</option>
+                                    }
+
+                                }
+                            </select>*@
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sel1">Control:</label>
+                        <select class="form-control" id="Control" name="Control">
+
+                            @{
+                                foreach (var item in ViewBag.control)
+                                {
+
+                                    <option value="@item.Control">@item.Control</option>
+                                }
+
+                            }
+                        </select>
+                        <!--br-->
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="sel1">Category:</label>
+                        <select class="form-control" id="Category" name="Category">
+
+                            @{
+                                foreach (var item in ViewBag.Category)
+                                {
+
+                                    <option value="@item.Category">@item.Category</option>
+                                }
+
+                            }
+                        </select>
+                        <!--br-->
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Branch">Amount:</label>
+                        @Html.TextBoxFor(model => model.amountWithComma, new { @class = "form-control", @id = "Amount" })
+                    </div>
+                    <div class="form-group">
+                        <label for="Branch">Description:</label>
+                        @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @id = "Description" })
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Accountno">Date:</label>
+                        @if (!ViewBag.isAutoId)
+                        {
+
+                            @Html.TextBoxFor(model => model.Date, new { @class = "form-control" })
+                        }
+                        else
+                        {
+                            @Html.TextBoxFor(model => model.Date, new { @type = "date", @class = "form-control" })
+                        }
+
+                    </div>
+
+                    <div class="form-group" id="imgDiv">
+                        <label for="Accountno">Bill Image:</label>
+                        <input type="file" class="form-control" name="ImageFile" id="img" required accept="image/*">
+                    </div>
+
+                                if (ViewBag.isAutoId)
+                                {
+                                    <button type="submit" id="submit_" class="btn btn-primary ">Submit</button>
+
+                                }
+
+                                @*<input type="checkbox" id="toggle-one" checked data-toggle="toggle" data-on="Verify" data-off="Not Verify" data-onstyle="success" data-offstyle="danger">*@
+
+                                }
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" id="submit" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    $(document).ready(function () {
+        new Cleave('#Amount', {
+            numeral: true,
+            numeralThousandsGroupStyle: 'thousand'
+        });
+        debugger;
+        var model = @Html.Raw(Json.Encode(Model))
+
+        $("#Control option").each(function () {
+            if ($(this).val() == model.Control)
+                $(this).attr("selected", "selected");
+        });
+
+        $("#Name option").each(function () {
+            if ($(this).val() == model.Name)
+                $(this).attr("selected", "selected");
+        });
+
+        $("#Category option").each(function () {
+            if ($(this).val() == model.Category)
+                $(this).attr("selected", "selected");
+        });
+
+        //Category
+
+    })
+
+
+
+</script>
