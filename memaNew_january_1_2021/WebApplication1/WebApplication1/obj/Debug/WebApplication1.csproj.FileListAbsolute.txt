@@ -751,5 +751,6 @@ D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.
 D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Google.xml
 D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Twitter.xml
 D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
 D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 D:\Project\memaNew_january_1_2021\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb

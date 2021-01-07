@@ -90,9 +90,13 @@ namespace WebApplication1.Controllers
                 string finalVoucherNum;
                 var idList = db.bankPaymentVouchers.Select(x => x.Vnumber).ToList();
 
+              var maxID =   db.bankPaymentVouchers.Max(x=>x.id).ToString();
+              var rcdAgainstmaxID = db.bankPaymentVouchers.Find(Convert.ToInt32(maxID));
+                
                 if (idList.Count != 0)
                 {
-                    var idd = idList.Last();
+                    //var idd = idList.Last();
+                    var idd = rcdAgainstmaxID.Vnumber;
                     var iddd = Convert.ToInt16(idd);
                      id = iddd + 1;
 
@@ -137,9 +141,13 @@ namespace WebApplication1.Controllers
                 string finalVoucherNum;
                 var idList = db.cashPaymentVouchers.Select(x => x.Vnumber).ToList();
 
+                var maxID = db.cashPaymentVouchers.Max(x => x.id).ToString();
+                var rcdAgainstmaxID = db.cashPaymentVouchers.Find(Convert.ToInt32(maxID));
+
                 if (idList.Count != 0)
                 {
-                    var idd = idList.Last();
+                    //var idd = idList.Last();
+                    var idd = rcdAgainstmaxID.Vnumber;
                     var iddd = Convert.ToInt16(idd);
                     id = iddd + 1;
 

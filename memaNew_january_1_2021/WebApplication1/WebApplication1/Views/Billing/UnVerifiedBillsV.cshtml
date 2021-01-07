@@ -237,8 +237,11 @@
 
 
         function dataTable() {
+            debugger;
             var table = $('#myTable').DataTable({
-                "order": [[0, 'desc'], [5, 'desc']]
+                 columnDefs: [{"type": "date","targets": 5}]
+                ,order: [[5, 'desc']]
+                //"order": [[0, 'desc'], [5, 'desc']]
             });
 
             new $.fn.dataTable.FixedHeader(table);

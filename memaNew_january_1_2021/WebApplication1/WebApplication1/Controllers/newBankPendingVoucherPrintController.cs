@@ -394,10 +394,11 @@ namespace WebApplication1.Controllers
 
             string taxamount = string.Format("{0:#,0}", (data.TaxAmount == null ? 0 : data.TaxAmount));     // 123,000,000
             var totalamount = Convert.ToInt32(data.AmountWithComma.Replace(",", "")) - Convert.ToInt32(taxamount.Replace(",", ""));
-
+            var totalamount_  = Convert.ToInt32(data.AmountWithComma.Replace(",", "")) + Convert.ToInt32(taxamount.Replace(",", ""));
 
             // _fontStyle = FontFactory.GetFont("Tahoma", 11f, 1);
-            _PdfCell = new PdfPCell(new Phrase(string.Format("{0:#,0}", (totalamount == null ? 0 : totalamount)), _fontStyle));
+            // _PdfCell = new PdfPCell(new Phrase(string.Format("{0:#,0}", (totalamount == null ? 0 : totalamount)), _fontStyle));
+            _PdfCell = new PdfPCell(new Phrase(data.AmountWithComma, _fontStyle));
             _PdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
             _PdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
             _PdfCell.BackgroundColor = BaseColor.WHITE;
@@ -418,7 +419,9 @@ namespace WebApplication1.Controllers
 
 
             //  _fontStyle = FontFactory.GetFont("Tahoma", 11f, 1);
-            _PdfCell = new PdfPCell(new Phrase(data.AmountWithComma, _fontStyle));
+            //_PdfCell = new PdfPCell(new Phrase(data.AmountWithComma, _fontStyle));
+            _PdfCell = new PdfPCell(new Phrase(totalamount_.ToString(), _fontStyle));
+            
             _PdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
             _PdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
             _PdfCell.BackgroundColor = BaseColor.WHITE;

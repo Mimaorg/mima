@@ -200,8 +200,9 @@
             $("body .makeDisable").attr("href", "javascript:;");
 
 
-         var table =    $('#myTable').DataTable({
-             order: [[0, 'desc'], [5, 'desc']]
+            var table = $('#myTable').DataTable({
+                 columnDefs: [{"type": "date","targets": 5}]
+                ,order: [[5, 'desc']]
             });
          new $.fn.dataTable.FixedHeader(table);
             function Update(e) {

@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\Admin\Desktop\publish_dec-31-2020</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\Admin\Desktop\pubish_jan_8_2020</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -121,10 +121,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/26/2020 12:06:52</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>01/05/2021 03:45:34</publishTime>
+      <publishTime>01/08/2021 00:50:41</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>01/05/2021 03:45:34</publishTime>
+      <publishTime>01/08/2021 00:50:41</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>12/26/2020 12:06:52</publishTime>
@@ -262,7 +262,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/26/2020 12:06:52</publishTime>
     </File>
     <File Include="bin/WebApplication1.dll">
-      <publishTime>01/05/2021 03:44:30</publishTime>
+      <publishTime>01/08/2021 00:50:00</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>12/26/2020 12:06:52</publishTime>
@@ -5416,7 +5416,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/26/2020 12:06:52</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>01/05/2021 03:45:20</publishTime>
+      <publishTime>01/08/2021 00:50:28</publishTime>
     </File>
     <File Include="Scripts/ai.0.22.9-build00167.js">
       <publishTime>12/26/2020 12:06:52</publishTime>
@@ -5521,13 +5521,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/26/2020 12:06:52</publishTime>
     </File>
     <File Include="Views/Billing/projectBills.cshtml">
-      <publishTime>01/02/2021 13:03:44</publishTime>
+      <publishTime>01/07/2021 01:49:53</publishTime>
     </File>
     <File Include="Views/Billing/projectBills_.cshtml">
       <publishTime>12/26/2020 12:06:52</publishTime>
     </File>
     <File Include="Views/Billing/UnVerifiedBillsV.cshtml">
-      <publishTime>01/01/2021 14:12:08</publishTime>
+      <publishTime>01/07/2021 01:43:39</publishTime>
     </File>
     <File Include="Views/Billing/unverifiedprojectBills.cshtml">
       <publishTime>01/02/2021 16:34:00</publishTime>
@@ -5536,7 +5536,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/02/2021 14:50:44</publishTime>
     </File>
     <File Include="Views/Billing/vBilling.cshtml">
-      <publishTime>12/26/2020 12:06:52</publishTime>
+      <publishTime>01/07/2021 01:47:46</publishTime>
     </File>
     <File Include="Views/Billing/_UnVerifiedBillsV.cshtml">
       <publishTime>01/02/2021 14:49:10</publishTime>
@@ -5581,13 +5581,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/26/2020 12:06:52</publishTime>
     </File>
     <File Include="Views/Home/PaymentForm.cshtml">
-      <publishTime>01/05/2021 02:48:58</publishTime>
+      <publishTime>01/07/2021 01:11:40</publishTime>
     </File>
     <File Include="Views/Home/PaymentRecieving.cshtml">
       <publishTime>12/26/2020 12:06:52</publishTime>
     </File>
     <File Include="Views/Home/pendingRecord.cshtml">
-      <publishTime>01/03/2021 09:18:58</publishTime>
+      <publishTime>01/07/2021 01:53:27</publishTime>
     </File>
     <File Include="Views/Login/Index.cshtml">
       <publishTime>12/26/2020 12:06:52</publishTime>
@@ -5647,7 +5647,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/03/2021 10:32:22</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>12/26/2020 12:06:52</publishTime>
+      <publishTime>01/07/2021 00:50:56</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>12/26/2020 12:06:52</publishTime>

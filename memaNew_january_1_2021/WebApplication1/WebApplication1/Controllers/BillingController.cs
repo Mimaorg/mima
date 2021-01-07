@@ -143,10 +143,12 @@ namespace WebApplication1.Controllers
                 var id_ = 0;
                 string finalVoucherNum;
                 var idList = db.Billing_UnVerified.Select(x => x.Bill_id).ToList();
-
+                var maxID = db.Billing_UnVerified.Max(x => x.id).ToString();
+                var rcdAgainstmaxID = db.Billing_UnVerified.Find(Convert.ToInt32(maxID));
                 if (idList.Count != 0)
                 {
-                    var idd = idList.Last();
+                    //var idd = idList.Last();
+                    var idd = rcdAgainstmaxID.Bill_id;
                     var iddd = Convert.ToInt16(idd);
                     id_ = iddd + 1;
 
@@ -168,9 +170,12 @@ namespace WebApplication1.Controllers
             ViewBag.paidTo = db.Paid_to_Details.ToList();
             ViewBag.category = ddb.Sp_Mima_Finance_Dev_SelectCategory().ToList();
             //ViewBag.Category = db.Categories.ToList();
-            var iddddd = db.Billings.Select(x => x.Bill_id).ToList();//for verify bills.
-            var a = iddddd.Last();
-            ViewBag.verifyBillId = a.ToString();
+            //var iddddd = db.Billings.Select(x => x.Bill_id).ToList();//for verify bills.
+            //var a = iddddd.Last();
+           // ViewBag.verifyBillId = a.ToString();
+            var maxIDforBill = db. Billings.Max(x => x.id).ToString();
+            var rcdAgainstmaxIDforbill = db.Billings.Find(Convert.ToInt32(maxIDforBill));
+            ViewBag.verifyBillId = rcdAgainstmaxIDforbill.Bill_id;
             var dataa = db.Billing_UnVerified.Find(id);
 
             if (id != 0)

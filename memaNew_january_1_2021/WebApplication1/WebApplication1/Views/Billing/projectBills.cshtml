@@ -114,8 +114,9 @@
 
             //$('#myTable').DataTable();
          //   var table =
-                $('#myTable').DataTable({
-                "order": [[0, 'desc'], [4, 'desc']]
+            $('#myTable').DataTable({
+                 columnDefs: [{"type": "date","targets": 4}]
+                ,order: [[4, 'desc']]
             });
 
             $("body").on("click", ".BtnEdit", function () {

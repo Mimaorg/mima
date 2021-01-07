@@ -22,7 +22,7 @@
     height:32px;
     }
 </style>
-
+<div class="loader"></div>
 <input type="hidden" id="totalamountofmulticheque" />
     <div class="row text-center">
         <div class="col-md-12"><img src="~/Content/img/mima-constructionLogo.png" /></div>
@@ -141,7 +141,7 @@
 
                     <div class="form-group">
                         <label for="pwd">Tax %:</label>
-                        <input type="number" class="form-control borderRem width-sm taxinput" id="taxinput" name="taxpercentage" autocomplete="off" required>
+                        <input type="number" class="form-control borderRem width-sm taxinput" value="0" id="taxinput" name="taxpercentage" autocomplete="off" required>
                     </div>
 
 
@@ -216,7 +216,7 @@
 
         <div class="form-group">
             <label for="pwd">Tax Amount:</label>
-            <input type="text" class="form-control borderRem width-lg" autocomplete="off" readonly id="taxamount" name="taxAmount" required>
+            <input type="text" class="form-control borderRem width-lg" autocomplete="off" readonly id="taxamount" value="0" name="taxAmount" required>
         </div>
 
         <div class="form-group">
@@ -326,7 +326,7 @@
             });
        // });
             $("#printPdf").click(function () {
-                debugger;
+                
                 var isEmpty= false;
                // $("input:not(.chequehidden , .amounthidden)").each(function () {
                 $("#bankForm").find("input:not(.chequehidden ,.amounthidden)").each(function () {
@@ -345,10 +345,12 @@
                 })
 
                 if (!isEmpty) {
+                    debugger
+                    $(document).find(".loader").show();
                     //AJaxHelper.AjaxReqProcessor($("form").serialize(), false, 'Json', 'Post', 'sharting', 'Index');
-                    AJaxHelper.AjaxReqProcessor($("form").serialize(), false, 'Json', 'Post', 'newBankPendingVoucherPrint', 'Index');
+                    //AJaxHelper.AjaxReqProcessor($("form").serialize(), false, 'Json', 'Post', 'newBankPendingVoucherPrint', 'Index');
                     if (AJaxHelper.result != null) {
-
+                        $(".loader").hide();
                         printPreview(AJaxHelper.result)
 
                     } else {
@@ -460,17 +462,17 @@
                 if (chequeArray.length != amountArray.length) {
                     alert("Cheque numbers and amount count does not match. ")
                 } else {
-
-                    function percentage(num, per) {
-                        return (num / 100) * per;
-                    }
                     var texpercetn = $("#taxinput").val();
-                    $("#taxamount").val(Math.round(percentage(amount, texpercetn)));
+                    
+                    var calculatedamount = Math.round(percentage(amount, texpercetn));
+                    var remainingamount = amount - calculatedamount;
+                    console.log(calculatedamount)
+                    $("#taxamount").val(calculatedamount);
                    // console.log(percentage(100000, 4.5));
 
                     $("#chequeArrayhidden").val(chequeArray);
                     $("#amountArrayhidden").val(amountArray);
-                    $("#amount").val(amount);
+                    $("#amount").val(remainingamount);
                     $(".chequeinpt").val(chequeArray[0]);
                     $("#amount").trigger("keyup");
                     alert("Cheque numbers set in the run time memory.")
@@ -676,11 +678,11 @@
         //function percentage(num, per) {
           //  return (num / 100) * per;
         //}
-        var texpercetn = $("#taxinput").val();
-        var calculatetex = (amount.replace(/,/g, '') / 100) * texpercetn;
-        var removepoint = Math.round(calculatetex)
+        //var texpercetn = $("#taxinput").val();
+        //var calculatetex = (amount.replace(/,/g, '') / 100) * texpercetn;
+        //var removepoint = Math.round(calculatetex)
        
-        $("#taxamount").val(removepoint);
+        //$("#taxamount").val(removepoint);
         //----------//
 
         $('#rupees').val(words_string);   
@@ -755,6 +757,8 @@
 
 
     }
-   
+    function percentage(num, per) {
+        return (num / 100) * per;
+    }
 
 </script>
