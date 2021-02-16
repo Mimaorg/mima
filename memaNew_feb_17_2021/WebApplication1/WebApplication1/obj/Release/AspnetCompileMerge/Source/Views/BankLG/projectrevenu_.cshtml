@@ -1,0 +1,48 @@
+﻿
+@model IEnumerable<WebApplication1.Models.Usp_Project_Rev_GL_Result>
+
+<table class="table table-bordered drillTable" id="drill0Table">
+    <thead>
+        <tr>
+            <th>Project</th>
+            <th>Bills</th>
+            <th>Received</th>
+            <th>Balance</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td class="drill1" id="@item.Project"><a href="javascript:;">@item.Project</a></td>
+                <td>@item.Bills</td>
+                <td>@item.Received</td>
+
+                @{
+                    string val3 = string.Empty;
+                    var val1 = item.Balance.ToString().Contains("-");
+                    if (val1)
+                    {
+                        var val2 = item.Balance * (-1);
+                        val3 = "(" + @String.Format("{0:#,0}", (val2 == null ? 0 : val2)) + ")";
+                    }
+                    else
+                    {
+                        val3 = @String.Format("{0:#,0}", (item.Balance == null ? 0 : item.Balance));
+                    }
+
+                }
+
+
+                <td>@val3</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+   // $("#drill0Table").DataTable();
+</script>

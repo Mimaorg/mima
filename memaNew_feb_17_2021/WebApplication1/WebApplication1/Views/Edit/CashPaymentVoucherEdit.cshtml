@@ -1,0 +1,499 @@
+﻿
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    Html.RenderPartial("~/Views/Shared/navBar.cshtml");
+}
+<style>
+    .form-control {
+        border: 1px solid white;
+        border-radius: 5px;
+    }
+</style>
+
+
+<div class="row text-center">
+    <div class="col-md-12"><img src="~/Content/img/mima-constructionLogo.png" /></div>
+    <div class="col-md-12"><h3>Cash Payment Voucher</h3></div>
+
+</div>
+<div class="myDiv">
+    <div class="row">
+
+        <div class="col-md-12">
+
+            @using (Html.BeginForm("cashPaymentVoucherSubmit", "Home", FormMethod.Post, new { id = "bankForm" }))
+            {
+                <div class="formInnerDiv">
+                    <input type="checkbox" class="ispending-checkBox" name="isPending" value="true" id="isPending" style="display:none" />
+                    @*Submit as a Pending*@
+
+                    <div class="form-group">
+                        <label for="email">V.no:</label>
+                        <input type="text" class="form-control borderRem width-sm" id="Vnom" name="Vnumber" value="@ViewBag.vNum" autocomplete="off" required readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Date:</label>
+                        <input type="text" class="form-control borderRem width-sm" id="date" readonly name="Date" required autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="sel1">Category:</label>
+                        <select class="form-control width-sm" id="categoryDropDown" name="Category">
+
+                            @{
+                                foreach (var item in ViewBag.category)
+                                {
+
+                                    <option value="@item.Category">@item.Category</option>
+                                }
+
+                            }
+                        </select>
+                        <!--br-->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="sel1">Paid To:</label>
+                    <select class="form-control borderRem width-lg" id="PaidTo" name="PaidTo">
+
+                        @*ViewBag.banksList*@
+                        @{
+                            foreach (var item in ViewBag.paidto)
+                            {
+                                @*<option value="@item.id">@item.Bank1</option>*@
+                                <option value="@item.Paid_to">@item.Paid_to</option>
+                            }
+
+                        }
+                    </select>
+                    <!--br-->
+
+                </div>
+                <div class="form-group">
+                    <label for="sel1">Control:</label>
+                    <select class="form-control borderRem width-lg" id="Control" name="Control">
+
+                        @*ViewBag.banksList*@
+                        @{
+                            foreach (var item in ViewBag.contorl)
+                            {
+                                @*<option value="@item.id">@item.Bank1</option>*@
+                                <option value="@item.Control">@item.Control</option>
+                            }
+
+                        }
+                    </select>
+                    <!--br-->
+
+                </div>
+                @*<div class="form-group">
+                        <label for="pwd">Paid To:</label>
+                        <input type="text" class="form-control borderRem width-lg" id="pwd" autocomplete="off" name="PaidTo" required>
+                    </div>*@
+                            @*<div class="form-group">
+                                    <label for="pwd">Control:</label>
+                                    <input type="text" class="form-control borderRem width-lg" id="pwd" name="Control" required>
+                                </div>*@
+                            <div class=""></div>
+                            <div class="form-group">
+                                <label for="pwd">Amount:</label>
+                                <input type="text" class="form-control borderRem width-lg" autocomplete="off" onkeyup="amount.innerHTML=convertNumberToWords(this.value)" id="amount" name="AmountWithComma" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pwd">Rupees:</label>
+                                <input type="text" class="form-control borderRem width-lg" autocomplete="off" id="rupees" readonly name="Rupees" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">Description:</label>
+                                <input type="text" class="form-control borderRem width-lg" autocomplete="off" id="Description" name="Description" required>
+                            </div>
+
+
+                            <button type="button" id="printPdf" class="btn btn-success submitBtn">Print</button>
+                            @*<button type="submit" class="btn btn-primary">Submit</button>*@
+                            @*<button type="button" id="resetBtn" class="btn btn-danger">Reset</button>*@
+                            @*<button type="submit" class="btn btn-light btnPending">Pending</button>*@
+
+
+                            }
+
+        </div>
+    </div>
+    <div id="editor"></div>
+</div>
+
+
+<script>
+
+
+
+
+    $(document).ready(function() {
+        debugger;
+        var formData =@Html.Raw(ViewBag.Data);
+        debugger
+        $('input').prop('readonly', true);
+        $('select'). prop('disabled', true);
+        $("#printPdf").click(function () {
+            var formData1 ={};
+            formData1.Vnumber         = $("input[name=Vnumber]").val();
+            formData1.Date            = $("input[name=Date]").val();
+            formData1.PaidTo          = $("#PaidTo").val();
+            formData1.Control         = $("#Control").val();
+            formData1.Category         = $("#categoryDropDown").val();
+            formData1.AmountWithComma = $("input[name=AmountWithComma]").val();
+            formData1.Rupees          = $("input[name=Rupees]").val();
+            formData1.Description     = $("input[name=Description]").val();
+            
+            //$("form").serialize()
+            //shart
+            AJaxHelper.AjaxReqProcessor(formData1, false, 'Json', 'Post', 'cashVoucherNewPrint', 'Index');
+            if (AJaxHelper.result != null) {
+
+                printPreview(AJaxHelper.result)
+
+            } else {
+                return false;
+
+            }
+         
+
+        })
+
+        var name=["id","Vnumber","Date","PaidTo","Control","Amount","Description","Rupees","filterDate","createAT"]
+        debugger;
+        $("input[name=id]").val(formData[0].id)
+        $("input[name=Vnumber]").val(formData[0].Vnumber)
+        $("input[name=Date]").val(formData[0].Date)
+        $("input[name=PaidTo]").val(formData[0].PaidTo)
+        $("input[name=Control]").val(formData[0].Control)
+        $("input[name=Category]").val(formData[0].Category)
+
+        
+        $("input[name=AmountWithComma]").val(formData[0].Amount)
+        $("input[name=Description]").val(formData[0].Description)
+        $("input[name=Rupees]").val(formData[0].Rupees)
+        $("input[name=filterDate]").val(formData[0].filterDate)
+        $("input[name=createAT]").val(formData[0].createAT)
+    
+        $("#PaidTo option").each(function(){
+            if ($(this).val() == formData[0].PaidTo)
+                $(this).attr("selected","selected");
+        });
+
+        $("#Control option").each(function(){
+            if ($(this).val() == formData[0].Control)
+                $(this).attr("selected","selected");
+        });
+        //categoryDropDown
+        $("#categoryDropDown option").each(function(){
+            debugger
+            if ($(this).val() == formData[0].Category)
+                $(this).attr("selected","selected");
+        });
+
+       
+
+
+        //$("input").each(function(){
+        //    debugger;
+        //    for (x in formData) {
+        //        debugger;
+        //        var lll = formData.lenght;
+        //        var sss =x;
+        //        if ( $(this).attr("name")==x.toString()) {
+        //            debugger;
+        //            $(this).val(formData[i])
+
+        //        }
+               
+
+        //    }
+        
+        //})
+
+
+        //-------//
+        //$("body").css("background-color", "#FFFFCC");
+
+      //  var VoucherNom = @*@Html.Raw(ViewBag.vNum);*@
+        //$("#Vnom").val("000"+VoucherNom.toString());
+
+        $(".btnPending").hover(function(){
+            //$('#bankForm').attr('action', '/Home/PendingSubmit');
+            //$("#isPending").val(1)
+            $("#isPending"). prop("checked", true);
+
+        }, function(){
+            //$('#bankForm').attr('action', '/Home/bankPaymentVoucherSubmit');
+            //$("#isPending").val(0)
+            $("#isPending"). prop("checked", false);
+        });
+    });
+
+    $(document).ready(function() {
+        debugger;
+       //var BankList = @*@Html.Raw(ViewBag.banksList);*@
+        @*var BankList = JSON.parse(@Html.Raw(ViewBag.banksList));*@
+        @*var BankList = [ '@Html.Raw(string.Join("', '", ViewBag.banksList))'];*@
+        //console.log(BankList);
+        //$( "#BanksList" ).autocomplete({
+        //    source: BankList
+        //});
+        //--------date work--------//
+  //      var today = new Date();
+  //      var dd = String(today.getDate()).padStart(2, '0');
+  //      var mm = String(today.getMonth());
+  //      var yyyy = today.getFullYear()
+
+  //      const monthNames = ["January", "February", "March", "April", "May", "June",
+  //"July", "August", "September", "October", "November", "December"
+  //      ];
+
+  //      var month =monthNames[today.getMonth()];
+  //     var todayDate=dd+"/"+month+"/"+yyyy
+
+  //     $("#date").val(todayDate);
+        //--------date work--------//
+
+        //--------numeric only--------//
+       $('#amount').keyup(function() {
+
+           var inputVal = $(this).val();
+
+           var numericReg = /^\d*[0-9](|.\d*[0-9]|,\d*[0-9])?$/;
+         //  if ($(this).val()!=" ") {
+               if(!numericReg.test(inputVal)) {
+                   //$(this).after('<span class="error error-keyup-1">Numeric characters only.</span>');
+                   alert("Numeric characters only.")
+                   //$(this).val("");
+               }
+          // }
+
+
+       });
+        //--------numeric only--------//
+
+        //------amount formating------//
+       $("#amount").keyup(function(){
+           const regex = /dog/gi;
+
+           console.log(regex.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"));
+       })
+        //------amount formating------//
+
+       //$("#pendingBtn").click(function(){
+       //    var data =$("form").serialize();
+
+       //    var ajaxResponse = AJaxHelper.AjaxReqProcessor(data,true,'json','Post','Home','PendingSubmit');
+       //    window.location.href = "/Home/cashPaymentVoucherSubmit";
+       //})
+
+       $("#resetBtn").click(function(){
+
+          // window.location.href = "/Home/cashPaymentVoucher";
+       })
+
+       //var resutl=[];
+       //$('#getDataBybankId').change(function(){
+
+       //    $('#AccoutnDiv').show();
+       //    var drow;
+       //    //var data = $(this).val();
+       //    var data = $( "#getDataBybankId option:selected" ).val();
+       //   // alert(data+"-----"+$( "#getDataBybankId option:selected" ).text())
+
+       //    AJaxHelper.AjaxReqProcessorById(null,false,'json','Post','Home','AccountsByBankId',data);
+       //    resutl = AJaxHelper.result;
+       //    // var myJSON = JSON.stringify(resutl);
+       //    //var obj = JSON.parse(JSON.stringify(resutl))
+       //   // var obj=JSON.stringify(resutl);
+       //    var obj = JSON.parse(resutl);
+       //    console.log(obj);
+       //    console.log(obj.length);
+       //    //console.log(obj[0].accountNumber);
+       //    let dropdown = $('#accountDropDown');
+       //    if (obj.length==0) {
+       //        dropdown.empty();
+       //        dropdown.append('<option selected="true" disabled>no account</option>');
+       //        dropdown.prop('selectedIndex', 0);
+       //    }else
+       //    {
+       //        console.log(drow);
+       //        for (var i = 0; i < obj.length; i++) {
+       //            drow += '<option value="'+obj[i].id+'">'+obj[i].accountNumber+'</option>'
+       //        }
+       //        debugger;
+       //        dropdown.empty();
+       //        dropdown.append(drow)
+       //    }
+
+
+
+
+
+
+
+       //   // $.each(myJSON, function (key, entry) {
+       //        //debugger;
+       //        //console.log(entry.accountNumber+"222222");
+       //      //  drow +='<option value="">'+entry.accountNumber+'</option>';
+       //        //dropdown.append($('<option value=""></option>').attr('value', entry.id).text(entry.accountNumber));
+       //        // })
+       //   // console.log(drow)
+
+       //    //const url = 'http://localhost:41213/Home/AccountsByBankId/'+data;
+
+       //    // Populate dropdown with list of provinces
+       //    //$.getJSON(url, function (data) {
+       //    //    $.each(data, function (key, entry) {
+       //    //        dropdown.append($('<option></option>').attr('value', entry.id).text(entry.accountNumber));
+       //    //    })
+       //    //});
+
+
+
+
+       //    debugger
+       //})
+
+       new Cleave('#amount', {
+           numeral: true,
+           numeralThousandsGroupStyle: 'thousand'
+       });
+
+
+    });
+
+    //------amount to words------//
+
+    function convertNumberToWords(amount) {
+        var words = new Array();
+        words[0] = '';
+        words[1] = 'One';
+        words[2] = 'Two';
+        words[3] = 'Three';
+        words[4] = 'Four';
+        words[5] = 'Five';
+        words[6] = 'Six';
+        words[7] = 'Seven';
+        words[8] = 'Eight';
+        words[9] = 'Nine';
+        words[10] = 'Ten';
+        words[11] = 'Eleven';
+        words[12] = 'Twelve';
+        words[13] = 'Thirteen';
+        words[14] = 'Fourteen';
+        words[15] = 'Fifteen';
+        words[16] = 'Sixteen';
+        words[17] = 'Seventeen';
+        words[18] = 'Eighteen';
+        words[19] = 'Nineteen';
+        words[20] = 'Twenty';
+        words[30] = 'Thirty';
+        words[40] = 'Forty';
+        words[50] = 'Fifty';
+        words[60] = 'Sixty';
+        words[70] = 'Seventy';
+        words[80] = 'Eighty';
+        words[90] = 'Ninety';
+        amount = amount.toString();
+        var atemp = amount.split(".");
+        var number = atemp[0].split(",").join("");
+        var n_length = number.length;
+        var words_string = "";
+        if (n_length <= 9) {
+            var n_array = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0);
+            var received_n_array = new Array();
+            for (var i = 0; i < n_length; i++) {
+                received_n_array[i] = number.substr(i, 1);
+            }
+            for (var i = 9 - n_length, j = 0; i < 9; i++, j++) {
+                n_array[i] = received_n_array[j];
+            }
+            for (var i = 0, j = 1; i < 9; i++, j++) {
+                if (i == 0 || i == 2 || i == 4 || i == 7) {
+                    if (n_array[i] == 1) {
+                        n_array[j] = 10 + parseInt(n_array[j]);
+                        n_array[i] = 0;
+                    }
+                }
+            }
+            value = "";
+            for (var i = 0; i < 9; i++) {
+                if (i == 0 || i == 2 || i == 4 || i == 7) {
+                    value = n_array[i] * 10;
+                } else {
+                    value = n_array[i];
+                }
+                if (value != 0) {
+                    words_string += words[value] + " ";
+                }
+                if ((i == 1 && value != 0) || (i == 0 && value != 0 && n_array[i + 1] == 0)) {
+                    words_string += "Crores ";
+                }
+                if ((i == 3 && value != 0) || (i == 2 && value != 0 && n_array[i + 1] == 0)) {
+                    words_string += "Lakhs ";
+                }
+                if ((i == 5 && value != 0) || (i == 4 && value != 0 && n_array[i + 1] == 0)) {
+                    words_string += "Thousand ";
+                }
+                if (i == 6 && value != 0 && (n_array[i + 1] != 0 && n_array[i + 2] != 0)) {
+                    words_string += "Hundred and ";
+                } else if (i == 6 && value != 0) {
+                    words_string += "Hundred ";
+                }
+            }
+            words_string = words_string.split("  ").join(" ");
+        }
+
+        $('#rupees').val(words_string);
+        return words_string;
+
+
+    }
+
+    //------amount to words------//
+
+    function printPreview(data) {
+        var type = 'application/pdf';
+        let blob = null;
+        const blobURL = URL.createObjectURL(pdfBlobConversion(data, 'application/pdf'));
+        const theWindow = window.open(blobURL);
+        const theDoc = theWindow.document;
+        const theScript = document.createElement('script');
+        function injectThis() {
+            window.print();
+        }
+        theScript.innerHTML = 'window.onload = ${injectThis.toString()};';
+        theDoc.body.appendChild(theScript);
+    }
+    //converts base64 to blob type for windows
+    function pdfBlobConversion(b64Data, contentType) {
+        contentType = contentType || '';
+        var sliceSize = 512;
+        b64Data = b64Data.replace(/^[^,]+,/, '');
+        b64Data = b64Data.replace(/\s/g, '');
+        var byteCharacters = window.atob(b64Data);
+        var byteArrays = [];
+
+        for (var offset = 0; offset < byteCharacters.length; offset = offset + sliceSize) {
+            var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+            var byteNumbers = new Array(slice.length);
+            for (var i = 0; i < slice.length; i++) {
+                byteNumbers[i] = slice.charCodeAt(i);
+            }
+
+            var byteArray = new Uint8Array(byteNumbers);
+
+            byteArrays.push(byteArray);
+        }
+
+        var blob = new Blob(byteArrays, { type: contentType });
+        return blob;
+    }
+</script>

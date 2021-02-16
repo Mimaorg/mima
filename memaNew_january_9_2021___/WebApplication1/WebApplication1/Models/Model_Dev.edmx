@@ -1,0 +1,1032 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Mima_Finance_DevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Account_ID" />
+          </Key>
+          <Property Name="ID" Type="int" />
+          <Property Name="Account_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Account_No" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Bank">
+          <Key>
+            <PropertyRef Name="Bank_ID" />
+          </Key>
+          <Property Name="ID" Type="int" />
+          <Property Name="Bank_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bank_Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Mima_Finance_Dev.dbo.Bank_LG' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Bank_LG">
+          <Property Name="Bank_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Current_Bank_Balance" Type="money" />
+        </EntityType>-->
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="Branch_ID" />
+          </Key>
+          <Property Name="ID" Type="int" />
+          <Property Name="Branch_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Branch" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Category_ID" />
+          </Key>
+          <Property Name="ID" Type="int" />
+          <Property Name="Category_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Cheque">
+          <Key>
+            <PropertyRef Name="Cheque_ID" />
+          </Key>
+          <Property Name="ID" Type="int" />
+          <Property Name="Cheque_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cheque_No" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Control">
+          <Key>
+            <PropertyRef Name="Control_ID" />
+          </Key>
+          <Property Name="ID" Type="int" />
+          <Property Name="Control_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Control" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Fact">
+          <Key>
+            <PropertyRef Name="Fact_ID" />
+          </Key>
+          <Property Name="Fact_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bank_ID" Type="int" />
+          <Property Name="Branch_ID" Type="int" />
+          <Property Name="Org_ID" Type="int" />
+          <Property Name="Account_ID" Type="int" />
+          <Property Name="Paid_ID" Type="int" />
+          <Property Name="Control_ID" Type="int" />
+          <Property Name="Cheque_ID" Type="int" />
+          <Property Name="Voucher_ID" Type="int" />
+          <Property Name="Bill_ID" Type="int" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="T_Date" Type="datetime" />
+          <Property Name="Category_ID" Type="int" />
+          <Property Name="V_ID" Type="int" />
+          <Property Name="Tax_Amount" Type="money" />
+          <Property Name="Tax_Per" Type="decimal" Precision="18" Scale="1" />
+          <Property Name="imgPath" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Org">
+          <Key>
+            <PropertyRef Name="Org_ID" />
+          </Key>
+          <Property Name="ID" Type="int" />
+          <Property Name="Org_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Org_Name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Paid_To">
+          <Key>
+            <PropertyRef Name="Paid_ID" />
+          </Key>
+          <Property Name="ID" Type="int" />
+          <Property Name="Paid_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Paid_To" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Transaction_Type">
+          <Key>
+            <PropertyRef Name="Trans_type_ID" />
+          </Key>
+          <Property Name="Trans_type_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Trans_Type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Voucher">
+          <Key>
+            <PropertyRef Name="Voucher_ID" />
+          </Key>
+          <Property Name="ID" Type="int" />
+          <Property Name="Voucher_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Voucher_No" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Rupees" Type="varchar" MaxLength="1000" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" />
+          <Property Name="Voucher_Type" Type="varchar" MaxLength="6" />
+          <Property Name="Transaction_Type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="Debit_Credit_Logic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="fn_ParseString" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CSVString" Type="varchar" Mode="In" />
+          <Parameter Name="Delimiter" Type="varchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="s" Type="varchar" MaxLength="1000" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="sp_Mima_Finance_Dev_BankList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_Mima_Finance_Dev_categoryBasedDropdown" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="categoryid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_Mima_Finance_Dev_categoryBasedDropdown_All" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_Mima_Finance_Dev_SelectCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Usp_APGL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="S_Date" Type="datetime" Mode="In" />
+          <Parameter Name="E_Date" Type="datetime" Mode="In" />
+          <Parameter Name="Contractor" Type="int" Mode="In" />
+          <Parameter Name="Category" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Usp_APGL_Summary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Contractor" Type="varchar" Mode="In" />
+          <Parameter Name="Project" Type="varchar" Mode="In" />
+          <Parameter Name="Category" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Usp_BankGL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="S_Date" Type="datetime" Mode="In" />
+          <Parameter Name="E_Date" Type="datetime" Mode="In" />
+          <Parameter Name="BankID" Type="int" Mode="In" />
+          <Parameter Name="Category" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Usp_Get_Projects_Par" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="S_Date" Type="datetime" Mode="In" />
+          <Parameter Name="E_Date" Type="datetime" Mode="In" />
+          <Parameter Name="Contractor" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Usp_Get_Vendors_Par" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="S_Date" Type="datetime" Mode="In" />
+          <Parameter Name="E_Date" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="Usp_Market_GL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="S_Date" Type="datetime" Mode="In" />
+          <Parameter Name="E_Date" Type="datetime" Mode="In" />
+          <Parameter Name="Contractor" Type="varchar" Mode="In" />
+          <Parameter Name="Project" Type="varchar" Mode="In" />
+          <Parameter Name="Category" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Usp_Market_Summary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Usp_Market_Summary_Drill1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Vendor" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Usp_Market_Summary_Drill2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Vendor" Type="varchar" Mode="In" />
+          <Parameter Name="Project" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Usp_Populate_Account" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Usp_Populate_Bank" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Usp_Populate_Branch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Usp_Populate_Category" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Usp_Populate_Cheque" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Usp_Populate_Control" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Usp_Populate_Dev" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Usp_Populate_Fact" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Usp_Populate_Fact_OLD_Data" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Usp_Populate_Org" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Usp_Populate_Paid_To" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Usp_Populate_Tables" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Usp_Populate_Voucher" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Usp_Print_Grid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Contractor" Type="varchar" Mode="In" />
+          <Parameter Name="Category" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Usp_Project_Cost_GL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Usp_Project_Cost_GL_Drill1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Project" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Usp_Project_Rev_GL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Usp_Project_Rev_GL_Drill1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Project" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Usp_ProjectGL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="S_Date" Type="datetime" Mode="In" />
+          <Parameter Name="E_Date" Type="datetime" Mode="In" />
+          <Parameter Name="Project" Type="int" Mode="In" />
+          <Parameter Name="Category" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="Mima_Finance_DevModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bank" EntityType="Self.Bank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Branch" EntityType="Self.Branch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cheque" EntityType="Self.Cheque" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Control" EntityType="Self.Control" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fact" EntityType="Self.Fact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Org" EntityType="Self.Org" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paid_To" EntityType="Self.Paid_To" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transaction_Type" EntityType="Self.Transaction_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Voucher" EntityType="Self.Voucher" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Mima_Finance_DevModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Account_ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" />
+          <Property Name="Account_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Account_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Bank">
+          <Key>
+            <PropertyRef Name="Bank_ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" />
+          <Property Name="Bank_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bank_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="Branch_ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" />
+          <Property Name="Branch_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Branch1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Category_ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" />
+          <Property Name="Category_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Cheque">
+          <Key>
+            <PropertyRef Name="Cheque_ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" />
+          <Property Name="Cheque_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cheque_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Control">
+          <Key>
+            <PropertyRef Name="Control_ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" />
+          <Property Name="Control_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Control1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Fact">
+          <Key>
+            <PropertyRef Name="Fact_ID" />
+          </Key>
+          <Property Name="Fact_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bank_ID" Type="Int32" />
+          <Property Name="Branch_ID" Type="Int32" />
+          <Property Name="Org_ID" Type="Int32" />
+          <Property Name="Account_ID" Type="Int32" />
+          <Property Name="Paid_ID" Type="Int32" />
+          <Property Name="Control_ID" Type="Int32" />
+          <Property Name="Cheque_ID" Type="Int32" />
+          <Property Name="Voucher_ID" Type="Int32" />
+          <Property Name="Bill_ID" Type="Int32" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="T_Date" Type="DateTime" Precision="3" />
+          <Property Name="Category_ID" Type="Int32" />
+          <Property Name="V_ID" Type="Int32" />
+          <Property Name="Tax_Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Tax_Per" Type="Decimal" Precision="18" Scale="1" />
+          <Property Name="imgPath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Org">
+          <Key>
+            <PropertyRef Name="Org_ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" />
+          <Property Name="Org_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Org_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Paid_To">
+          <Key>
+            <PropertyRef Name="Paid_ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" />
+          <Property Name="Paid_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Paid_To1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Transaction_Type">
+          <Key>
+            <PropertyRef Name="Trans_type_ID" />
+          </Key>
+          <Property Name="Trans_type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Trans_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Voucher">
+          <Key>
+            <PropertyRef Name="Voucher_ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" />
+          <Property Name="Voucher_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Voucher_No" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rupees" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Voucher_Type" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="Transaction_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="Mima_Finance_DevEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="Banks" EntityType="Self.Bank" />
+          <EntitySet Name="Branches" EntityType="Self.Branch" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Cheques" EntityType="Self.Cheque" />
+          <EntitySet Name="Controls" EntityType="Self.Control" />
+          <EntitySet Name="Facts" EntityType="Self.Fact" />
+          <EntitySet Name="Orgs" EntityType="Self.Org" />
+          <EntitySet Name="Paid_To" EntityType="Self.Paid_To" />
+          <EntitySet Name="Transaction_Type" EntityType="Self.Transaction_Type" />
+          <EntitySet Name="Vouchers" EntityType="Self.Voucher" />
+          <FunctionImport Name="Debit_Credit_Logic" />
+          <FunctionImport Name="fn_ParseString" IsComposable="true" ReturnType="Collection(String)">
+            <Parameter Name="CSVString" Mode="In" Type="String" />
+            <Parameter Name="Delimiter" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Mima_Finance_Dev_BankList" ReturnType="Collection(Mima_Finance_DevModel.sp_Mima_Finance_Dev_BankList_Result)" />
+          <FunctionImport Name="sp_Mima_Finance_Dev_categoryBasedDropdown" ReturnType="Collection(Mima_Finance_DevModel.sp_Mima_Finance_Dev_categoryBasedDropdown_Result)">
+            <Parameter Name="categoryid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Mima_Finance_Dev_categoryBasedDropdown_All" ReturnType="Collection(Mima_Finance_DevModel.sp_Mima_Finance_Dev_categoryBasedDropdown_All_Result)" />
+          <FunctionImport Name="Sp_Mima_Finance_Dev_SelectCategory" ReturnType="Collection(Mima_Finance_DevModel.Sp_Mima_Finance_Dev_SelectCategory_Result)" />
+          <FunctionImport Name="Usp_APGL" ReturnType="Collection(Mima_Finance_DevModel.Usp_APGL_Result)">
+            <Parameter Name="S_Date" Mode="In" Type="DateTime" />
+            <Parameter Name="E_Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Contractor" Mode="In" Type="Int32" />
+            <Parameter Name="Category" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Usp_APGL_Summary" ReturnType="Collection(Mima_Finance_DevModel.Usp_APGL_Summary_Result)">
+            <Parameter Name="Contractor" Mode="In" Type="String" />
+            <Parameter Name="Project" Mode="In" Type="String" />
+            <Parameter Name="Category" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Usp_BankGL" ReturnType="Collection(Mima_Finance_DevModel.Usp_BankGL_Result)">
+            <Parameter Name="S_Date" Mode="In" Type="DateTime" />
+            <Parameter Name="E_Date" Mode="In" Type="DateTime" />
+            <Parameter Name="BankID" Mode="In" Type="Int32" />
+            <Parameter Name="Category" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Usp_Get_Projects_Par" ReturnType="Collection(Mima_Finance_DevModel.Usp_Get_Projects_Par_Result)">
+            <Parameter Name="S_Date" Mode="In" Type="DateTime" />
+            <Parameter Name="E_Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Contractor" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Usp_Get_Vendors_Par" ReturnType="Collection(Mima_Finance_DevModel.Usp_Get_Vendors_Par_Result)">
+            <Parameter Name="S_Date" Mode="In" Type="DateTime" />
+            <Parameter Name="E_Date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Usp_Market_GL" ReturnType="Collection(Mima_Finance_DevModel.Usp_Market_GL_Result)">
+            <Parameter Name="S_Date" Mode="In" Type="DateTime" />
+            <Parameter Name="E_Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Contractor" Mode="In" Type="String" />
+            <Parameter Name="Project" Mode="In" Type="String" />
+            <Parameter Name="Category" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Usp_Market_Summary" ReturnType="Collection(Mima_Finance_DevModel.Usp_Market_Summary_Result)" />
+          <FunctionImport Name="Usp_Market_Summary_Drill1" ReturnType="Collection(Mima_Finance_DevModel.Usp_Market_Summary_Drill1_Result)">
+            <Parameter Name="Vendor" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Usp_Market_Summary_Drill2" ReturnType="Collection(Mima_Finance_DevModel.Usp_Market_Summary_Drill2_Result)">
+            <Parameter Name="Vendor" Mode="In" Type="String" />
+            <Parameter Name="Project" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Usp_Populate_Account" />
+          <FunctionImport Name="Usp_Populate_Bank" />
+          <FunctionImport Name="Usp_Populate_Branch" />
+          <FunctionImport Name="Usp_Populate_Category" />
+          <FunctionImport Name="Usp_Populate_Cheque" />
+          <FunctionImport Name="Usp_Populate_Control" />
+          <FunctionImport Name="Usp_Populate_Dev" />
+          <FunctionImport Name="Usp_Populate_Fact" />
+          <FunctionImport Name="Usp_Populate_Fact_OLD_Data" />
+          <FunctionImport Name="Usp_Populate_Org" />
+          <FunctionImport Name="Usp_Populate_Paid_To" />
+          <FunctionImport Name="Usp_Populate_Tables" />
+          <FunctionImport Name="Usp_Populate_Voucher" />
+          <FunctionImport Name="Usp_Print_Grid" ReturnType="Collection(Mima_Finance_DevModel.Usp_Print_Grid_Result)">
+            <Parameter Name="Contractor" Mode="In" Type="String" />
+            <Parameter Name="Category" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Usp_Project_Cost_GL" ReturnType="Collection(Mima_Finance_DevModel.Usp_Project_Cost_GL_Result)" />
+          <FunctionImport Name="Usp_Project_Cost_GL_Drill1" ReturnType="Collection(Mima_Finance_DevModel.Usp_Project_Cost_GL_Drill1_Result)">
+            <Parameter Name="Project" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Usp_Project_Rev_GL" ReturnType="Collection(Mima_Finance_DevModel.Usp_Project_Rev_GL_Result)" />
+          <FunctionImport Name="Usp_Project_Rev_GL_Drill1" ReturnType="Collection(Mima_Finance_DevModel.Usp_Project_Rev_GL_Drill1_Result)">
+            <Parameter Name="Project" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Usp_ProjectGL" ReturnType="Collection(Mima_Finance_DevModel.Usp_ProjectGL_Result)">
+            <Parameter Name="S_Date" Mode="In" Type="DateTime" />
+            <Parameter Name="E_Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Project" Mode="In" Type="Int32" />
+            <Parameter Name="Category" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_Mima_Finance_Dev_BankList_Result">
+          <Property Type="Int32" Name="ID" Nullable="true" />
+          <Property Type="Int32" Name="Bank_ID" Nullable="false" />
+          <Property Type="String" Name="Bank_Name" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_Mima_Finance_Dev_categoryBasedDropdown_Result">
+          <Property Type="Int32" Name="Paid_ID" Nullable="true" />
+          <Property Type="String" Name="Paid_To" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Category_ID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_Mima_Finance_Dev_categoryBasedDropdown_All_Result">
+          <Property Type="Int32" Name="Paid_ID" Nullable="true" />
+          <Property Type="String" Name="Paid_To" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Category_ID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Sp_Mima_Finance_Dev_SelectCategory_Result">
+          <Property Type="Int32" Name="ID" Nullable="true" />
+          <Property Type="Int32" Name="Category_ID" Nullable="false" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Usp_APGL_Result">
+          <Property Type="Int64" Name="id" Nullable="true" />
+          <Property Type="DateTime" Name="Date" Nullable="true" />
+          <Property Type="String" Name="Vendor" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Project" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Voucher_Type" Nullable="true" MaxLength="6" />
+          <Property Type="String" Name="Branch_Org" Nullable="true" MaxLength="254" />
+          <Property Type="String" Name="Voucher_No" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Debit" Nullable="true" />
+          <Property Type="Int32" Name="Credit" Nullable="true" />
+          <Property Type="Int32" Name="Balance" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Usp_APGL_Summary_Result">
+          <Property Type="String" Name="Vendor" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Project" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Debit" Nullable="true" />
+          <Property Type="Int32" Name="Credit" Nullable="true" />
+          <Property Type="Int32" Name="Balance" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Usp_BankGL_Result">
+          <Property Type="Int64" Name="id" Nullable="true" />
+          <Property Type="DateTime" Name="Date" Nullable="true" />
+          <Property Type="String" Name="Bank" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Vendor" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Project" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Cheque_No" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Debit" Nullable="true" />
+          <Property Type="Int32" Name="Credit" Nullable="true" />
+          <Property Type="Int32" Name="Balance" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Usp_Get_Projects_Par_Result">
+          <Property Type="Int32" Name="ID" Nullable="true" />
+          <Property Type="String" Name="Project" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="Usp_Get_Vendors_Par_Result">
+          <Property Type="Int32" Name="ID" Nullable="true" />
+          <Property Type="String" Name="Vendor" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="Usp_Market_GL_Result">
+          <Property Type="Int64" Name="id" Nullable="true" />
+          <Property Type="String" Name="Date" Nullable="true" MaxLength="8000" />
+          <Property Type="String" Name="Vendor" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Project" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="V_Type" Nullable="true" MaxLength="6" />
+          <Property Type="String" Name="B_O" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="V_No" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="UV" Nullable="false" />
+          <Property Type="Int32" Name="Debit" Nullable="true" />
+          <Property Type="Int32" Name="Credit" Nullable="true" />
+          <Property Type="Int32" Name="Balance" Nullable="true" />
+          <Property Type="Int32" Name="V_ID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Usp_Market_Summary_Result">
+          <Property Type="String" Name="Vendor" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Payable" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Usp_Market_Summary_Drill1_Result">
+          <Property Type="Int64" Name="id" Nullable="true" />
+          <Property Type="String" Name="Date" Nullable="true" MaxLength="8000" />
+          <Property Type="String" Name="Vendor" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Project" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="V_Type" Nullable="true" MaxLength="6" />
+          <Property Type="String" Name="B_O" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="V_No" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="UV" Nullable="false" />
+          <Property Type="Int32" Name="Debit" Nullable="true" />
+          <Property Type="Int32" Name="Credit" Nullable="true" />
+          <Property Type="Int32" Name="Balance" Nullable="true" />
+          <Property Type="Int32" Name="V_ID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Usp_Market_Summary_Drill2_Result">
+          <Property Type="Int64" Name="id" Nullable="true" />
+          <Property Type="String" Name="Date" Nullable="true" MaxLength="8000" />
+          <Property Type="String" Name="Vendor" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Project" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="V_Type" Nullable="true" MaxLength="6" />
+          <Property Type="String" Name="B_O" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="V_No" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="UV" Nullable="false" />
+          <Property Type="Int32" Name="Debit" Nullable="true" />
+          <Property Type="Int32" Name="Credit" Nullable="true" />
+          <Property Type="Int32" Name="Balance" Nullable="true" />
+          <Property Type="Int32" Name="V_ID" Nullable="true" />
+          <Property Type="String" Name="imgPath" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="Usp_Print_Grid_Result">
+          <Property Type="Int64" Name="id" Nullable="true" />
+          <Property Type="String" Name="Date" Nullable="true" MaxLength="8000" />
+          <Property Type="String" Name="Vendor" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Project" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="V_Type" Nullable="true" MaxLength="6" />
+          <Property Type="String" Name="B_O" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="V_No" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="UV" Nullable="false" />
+          <Property Type="Int32" Name="Debit" Nullable="true" />
+          <Property Type="Int32" Name="Credit" Nullable="true" />
+          <Property Type="Int32" Name="Balance" Nullable="true" />
+          <Property Type="Int32" Name="V_ID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Usp_Project_Cost_GL_Result">
+          <Property Type="String" Name="Project" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="Cost" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="Usp_Project_Cost_GL_Drill1_Result">
+          <Property Type="Int64" Name="ID" Nullable="true" />
+          <Property Type="String" Name="Paid_To" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="Date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Project" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Voucher_Type" Nullable="true" MaxLength="6" />
+          <Property Type="String" Name="Branch_Org" Nullable="true" MaxLength="254" />
+          <Property Type="String" Name="Voucher_No" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="Debit" Nullable="true" Precision="19" />
+          <Property Type="Int32" Name="V_ID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Usp_Project_Rev_GL_Result">
+          <Property Type="String" Name="Project" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Bills" Nullable="true" />
+          <Property Type="Int32" Name="Received" Nullable="true" />
+          <Property Type="Int32" Name="Balance" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Usp_Project_Rev_GL_Drill1_Result">
+          <Property Type="Int64" Name="ID" Nullable="true" />
+          <Property Type="Int32" Name="Paid_to" Nullable="true" />
+          <Property Type="DateTime" Name="Date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Project" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Voucher_Type" Nullable="true" MaxLength="6" />
+          <Property Type="String" Name="Branch_Org" Nullable="true" MaxLength="254" />
+          <Property Type="String" Name="Voucher_No" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Debit" Nullable="true" />
+          <Property Type="Int32" Name="Credit" Nullable="true" />
+          <Property Type="Int32" Name="Balance" Nullable="true" />
+          <Property Type="Int32" Name="V_ID" Nullable="true" />
+          <Property Type="String" Name="imgPath" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="Usp_ProjectGL_Result">
+          <Property Type="Int64" Name="id" Nullable="true" />
+          <Property Type="DateTime" Name="Date" Nullable="true" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Project" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Vendor" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Voucher_Type" Nullable="true" MaxLength="6" />
+          <Property Type="String" Name="Voucher_No" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Debit" Nullable="true" />
+          <Property Type="Int32" Name="Credit" Nullable="true" />
+          <Property Type="Int32" Name="Balance__" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Mima_Finance_DevModelStoreContainer" CdmEntityContainer="Mima_Finance_DevEntities">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="Mima_Finance_DevModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Account_ID" ColumnName="Account_ID" />
+                <ScalarProperty Name="Account_No" ColumnName="Account_No" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Banks">
+            <EntityTypeMapping TypeName="Mima_Finance_DevModel.Bank">
+              <MappingFragment StoreEntitySet="Bank">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Bank_ID" ColumnName="Bank_ID" />
+                <ScalarProperty Name="Bank_Name" ColumnName="Bank_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Branches">
+            <EntityTypeMapping TypeName="Mima_Finance_DevModel.Branch">
+              <MappingFragment StoreEntitySet="Branch">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Branch_ID" ColumnName="Branch_ID" />
+                <ScalarProperty Name="Branch1" ColumnName="Branch" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="Mima_Finance_DevModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+                <ScalarProperty Name="Category1" ColumnName="Category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cheques">
+            <EntityTypeMapping TypeName="Mima_Finance_DevModel.Cheque">
+              <MappingFragment StoreEntitySet="Cheque">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Cheque_ID" ColumnName="Cheque_ID" />
+                <ScalarProperty Name="Cheque_No" ColumnName="Cheque_No" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Controls">
+            <EntityTypeMapping TypeName="Mima_Finance_DevModel.Control">
+              <MappingFragment StoreEntitySet="Control">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Control_ID" ColumnName="Control_ID" />
+                <ScalarProperty Name="Control1" ColumnName="Control" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Facts">
+            <EntityTypeMapping TypeName="Mima_Finance_DevModel.Fact">
+              <MappingFragment StoreEntitySet="Fact">
+                <ScalarProperty Name="imgPath" ColumnName="imgPath" />
+                <ScalarProperty Name="Tax_Per" ColumnName="Tax_Per" />
+                <ScalarProperty Name="Tax_Amount" ColumnName="Tax_Amount" />
+                <ScalarProperty Name="Fact_ID" ColumnName="Fact_ID" />
+                <ScalarProperty Name="Bank_ID" ColumnName="Bank_ID" />
+                <ScalarProperty Name="Branch_ID" ColumnName="Branch_ID" />
+                <ScalarProperty Name="Org_ID" ColumnName="Org_ID" />
+                <ScalarProperty Name="Account_ID" ColumnName="Account_ID" />
+                <ScalarProperty Name="Paid_ID" ColumnName="Paid_ID" />
+                <ScalarProperty Name="Control_ID" ColumnName="Control_ID" />
+                <ScalarProperty Name="Cheque_ID" ColumnName="Cheque_ID" />
+                <ScalarProperty Name="Voucher_ID" ColumnName="Voucher_ID" />
+                <ScalarProperty Name="Bill_ID" ColumnName="Bill_ID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="T_Date" ColumnName="T_Date" />
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+                <ScalarProperty Name="V_ID" ColumnName="V_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orgs">
+            <EntityTypeMapping TypeName="Mima_Finance_DevModel.Org">
+              <MappingFragment StoreEntitySet="Org">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Org_ID" ColumnName="Org_ID" />
+                <ScalarProperty Name="Org_Name" ColumnName="Org_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paid_To">
+            <EntityTypeMapping TypeName="Mima_Finance_DevModel.Paid_To">
+              <MappingFragment StoreEntitySet="Paid_To">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Paid_ID" ColumnName="Paid_ID" />
+                <ScalarProperty Name="Paid_To1" ColumnName="Paid_To" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transaction_Type">
+            <EntityTypeMapping TypeName="Mima_Finance_DevModel.Transaction_Type">
+              <MappingFragment StoreEntitySet="Transaction_Type">
+                <ScalarProperty Name="Trans_type_ID" ColumnName="Trans_type_ID" />
+                <ScalarProperty Name="Trans_Type" ColumnName="Trans_Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vouchers">
+            <EntityTypeMapping TypeName="Mima_Finance_DevModel.Voucher">
+              <MappingFragment StoreEntitySet="Voucher">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Voucher_ID" ColumnName="Voucher_ID" />
+                <ScalarProperty Name="Voucher_No" ColumnName="Voucher_No" />
+                <ScalarProperty Name="Rupees" ColumnName="Rupees" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Voucher_Type" ColumnName="Voucher_Type" />
+                <ScalarProperty Name="Transaction_Type" ColumnName="Transaction_Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Debit_Credit_Logic" FunctionName="Mima_Finance_DevModel.Store.Debit_Credit_Logic" />
+          <FunctionImportMapping FunctionImportName="fn_ParseString" FunctionName="Mima_Finance_DevModel.Store.fn_ParseString" />
+          <FunctionImportMapping FunctionImportName="sp_Mima_Finance_Dev_BankList" FunctionName="Mima_Finance_DevModel.Store.sp_Mima_Finance_Dev_BankList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Mima_Finance_DevModel.sp_Mima_Finance_Dev_BankList_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Bank_ID" ColumnName="Bank_ID" />
+                <ScalarProperty Name="Bank_Name" ColumnName="Bank_Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_Mima_Finance_Dev_categoryBasedDropdown" FunctionName="Mima_Finance_DevModel.Store.sp_Mima_Finance_Dev_categoryBasedDropdown">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Mima_Finance_DevModel.sp_Mima_Finance_Dev_categoryBasedDropdown_Result">
+                <ScalarProperty Name="Paid_ID" ColumnName="Paid_ID" />
+                <ScalarProperty Name="Paid_To" ColumnName="Paid_To" />
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_Mima_Finance_Dev_categoryBasedDropdown_All" FunctionName="Mima_Finance_DevModel.Store.sp_Mima_Finance_Dev_categoryBasedDropdown_All">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Mima_Finance_DevModel.sp_Mima_Finance_Dev_categoryBasedDropdown_All_Result">
+                <ScalarProperty Name="Paid_ID" ColumnName="Paid_ID" />
+                <ScalarProperty Name="Paid_To" ColumnName="Paid_To" />
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_Mima_Finance_Dev_SelectCategory" FunctionName="Mima_Finance_DevModel.Store.Sp_Mima_Finance_Dev_SelectCategory">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Mima_Finance_DevModel.Sp_Mima_Finance_Dev_SelectCategory_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Usp_APGL" FunctionName="Mima_Finance_DevModel.Store.Usp_APGL">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Mima_Finance_DevModel.Usp_APGL_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="Voucher_Type" ColumnName="Voucher_Type" />
+                <ScalarProperty Name="Branch_Org" ColumnName="Branch/Org" />
+                <ScalarProperty Name="Voucher_No" ColumnName="Voucher_No" />
+                <ScalarProperty Name="Debit" ColumnName="Debit" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Usp_APGL_Summary" FunctionName="Mima_Finance_DevModel.Store.Usp_APGL_Summary">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Mima_Finance_DevModel.Usp_APGL_Summary_Result">
+                <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Debit" ColumnName="Debit" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Usp_BankGL" FunctionName="Mima_Finance_DevModel.Store.Usp_BankGL">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Mima_Finance_DevModel.Usp_BankGL_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Bank" ColumnName="Bank" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="Cheque_No" ColumnName="Cheque_No" />
+                <ScalarProperty Name="Debit" ColumnName="Debit" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Usp_Get_Projects_Par" FunctionName="Mima_Finance_DevModel.Store.Usp_Get_Projects_Par">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Mima_Finance_DevModel.Usp_Get_Projects_Par_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Usp_Get_Vendors_Par" FunctionName="Mima_Finance_DevModel.Store.Usp_Get_Vendors_Par">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Mima_Finance_DevModel.Usp_Get_Vendors_Par_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Usp_Market_GL" FunctionName="Mima_Finance_DevModel.Store.Usp_Market_GL">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Mima_Finance_DevModel.Usp_Market_GL_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="V_Type" ColumnName="V.Type" />
+                <ScalarProperty Name="B_O" ColumnName="B/O" />
+                <ScalarProperty Name="V_No" ColumnName="V.No" />
+                <ScalarProperty Name="UV" ColumnName="UV" />
+                <ScalarProperty Name="Debit" ColumnName="Debit" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="V_ID" ColumnName="V_ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Usp_Market_Summary" FunctionName="Mima_Finance_DevModel.Store.Usp_Market_Summary">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Mima_Finance_DevModel.Usp_Market_Summary_Result">
+                <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+                <ScalarProperty Name="Payable" ColumnName="Payable" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Usp_Market_Summary_Drill1" FunctionName="Mima_Finance_DevModel.Store.Usp_Market_Summary_Drill1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Mima_Finance_DevModel.Usp_Market_Summary_Drill1_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="V_Type" ColumnName="V.Type" />
+                <ScalarProperty Name="B_O" ColumnName="B/O" />
+                <ScalarProperty Name="V_No" ColumnName="V.No" />
+                <ScalarProperty Name="UV" ColumnName="UV" />
+                <ScalarProperty Name="Debit" ColumnName="Debit" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="V_ID" ColumnName="V_ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Usp_Market_Summary_Drill2" FunctionName="Mima_Finance_DevModel.Store.Usp_Market_Summary_Drill2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Mima_Finance_DevModel.Usp_Market_Summary_Drill2_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="V_Type" ColumnName="V.Type" />
+                <ScalarProperty Name="B_O" ColumnName="B/O" />
+                <ScalarProperty Name="V_No" ColumnName="V.No" />
+                <ScalarProperty Name="UV" ColumnName="UV" />
+                <ScalarProperty Name="Debit" ColumnName="Debit" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="V_ID" ColumnName="V_ID" />
+                <ScalarProperty Name="imgPath" ColumnName="imgPath" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Usp_Populate_Account" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Account" />
+          <FunctionImportMapping FunctionImportName="Usp_Populate_Bank" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Bank" />
+          <FunctionImportMapping FunctionImportName="Usp_Populate_Branch" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Branch" />
+          <FunctionImportMapping FunctionImportName="Usp_Populate_Category" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Category" />
+          <FunctionImportMapping FunctionImportName="Usp_Populate_Cheque" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Cheque" />
+          <FunctionImportMapping FunctionImportName="Usp_Populate_Control" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Control" />
+          <FunctionImportMapping FunctionImportName="Usp_Populate_Dev" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Dev" />
+          <FunctionImportMapping FunctionImportName="Usp_Populate_Fact" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Fact" />
+          <FunctionImportMapping FunctionImportName="Usp_Populate_Fact_OLD_Data" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Fact_OLD_Data" />
+          <FunctionImportMapping FunctionImportName="Usp_Populate_Org" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Org" />
+          <FunctionImportMapping FunctionImportName="Usp_Populate_Paid_To" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Paid_To" />
+          <FunctionImportMapping FunctionImportName="Usp_Populate_Tables" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Tables" />
+          <FunctionImportMapping FunctionImportName="Usp_Populate_Voucher" FunctionName="Mima_Finance_DevModel.Store.Usp_Populate_Voucher" />
+          <FunctionImportMapping FunctionImportName="Usp_Print_Grid" FunctionName="Mima_Finance_DevModel.Store.Usp_Print_Grid">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Mima_Finance_DevModel.Usp_Print_Grid_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="V_Type" ColumnName="V.Type" />
+                <ScalarProperty Name="B_O" ColumnName="B/O" />
+                <ScalarProperty Name="V_No" ColumnName="V.No" />
+                <ScalarProperty Name="UV" ColumnName="UV" />
+                <ScalarProperty Name="Debit" ColumnName="Debit" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="V_ID" ColumnName="V_ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Usp_Project_Cost_GL" FunctionName="Mima_Finance_DevModel.Store.Usp_Project_Cost_GL">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Mima_Finance_DevModel.Usp_Project_Cost_GL_Result">
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Usp_Project_Cost_GL_Drill1" FunctionName="Mima_Finance_DevModel.Store.Usp_Project_Cost_GL_Drill1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Mima_Finance_DevModel.Usp_Project_Cost_GL_Drill1_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Paid_To" ColumnName="Paid_To" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="Voucher_Type" ColumnName="Voucher_Type" />
+                <ScalarProperty Name="Branch_Org" ColumnName="Branch/Org" />
+                <ScalarProperty Name="Voucher_No" ColumnName="Voucher_No" />
+                <ScalarProperty Name="Debit" ColumnName="Debit" />
+                <ScalarProperty Name="V_ID" ColumnName="V_ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Usp_Project_Rev_GL" FunctionName="Mima_Finance_DevModel.Store.Usp_Project_Rev_GL">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Mima_Finance_DevModel.Usp_Project_Rev_GL_Result">
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="Bills" ColumnName="Bills" />
+                <ScalarProperty Name="Received" ColumnName="Received" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Usp_Project_Rev_GL_Drill1" FunctionName="Mima_Finance_DevModel.Store.Usp_Project_Rev_GL_Drill1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Mima_Finance_DevModel.Usp_Project_Rev_GL_Drill1_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Paid_to" ColumnName="Paid_to" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="Voucher_Type" ColumnName="Voucher_Type" />
+                <ScalarProperty Name="Branch_Org" ColumnName="Branch/Org" />
+                <ScalarProperty Name="Voucher_No" ColumnName="Voucher_No" />
+                <ScalarProperty Name="Debit" ColumnName="Debit" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="V_ID" ColumnName="V_ID" />
+                <ScalarProperty Name="imgPath" ColumnName="imgPath" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Usp_ProjectGL" FunctionName="Mima_Finance_DevModel.Store.Usp_ProjectGL">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Mima_Finance_DevModel.Usp_ProjectGL_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+                <ScalarProperty Name="Voucher_Type" ColumnName="Voucher_Type" />
+                <ScalarProperty Name="Voucher_No" ColumnName="Voucher_No" />
+                <ScalarProperty Name="Debit" ColumnName="Debit" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="Balance__" ColumnName="Balance&#xD;&#xA;" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

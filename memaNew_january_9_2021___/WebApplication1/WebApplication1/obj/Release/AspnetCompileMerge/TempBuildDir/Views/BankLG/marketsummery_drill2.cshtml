@@ -1,0 +1,108 @@
+﻿
+@model IEnumerable<WebApplication1.Models.Usp_Market_Summary_Drill2_Result>
+
+<table class="table table-bordered" id="drill2Table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th style="width:11%">Date</th>
+            <th>Vendor</th>
+            <th>Description</th>
+            <th>Cat.</th>
+            <th>Project</th>
+            <th>V.T</th>
+            <th>B/O</th>
+            <th>V.No</th>
+            <th>UV</th>
+            <th>Debit</th>
+            <th>Credit</th>
+            <th>Balance</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            string formatedBalance = "";
+
+        }
+        @foreach (var item in Model)
+        {
+            ////item.Balance = 20000;
+            //var withcomaa = String.Format("{0:#,0}", ( item.Balance == null ? 0 : item.Balance));
+            //formatedBalance = withcomaa.Contains("-") == true ? "(" + item.Balance.ToString() + ")" : item.Balance.ToString();
+
+            <tr>
+                <td style="font-size:small">@item.id</td>
+                <td style="font-size:small">@String.Format("{0:dd/MM/yyyy}", @item.Date)</td>
+                @*<td>@item.Date</td>*@
+                <td style="font-size:small; color:red">@item.Vendor</td>
+                <td style="font-size:small">@item.Description</td>
+                <td style="font-size:small">@item.Category</td>
+                <td style="font-size:small">@item.Project</td>
+                <td style="font-size:small">@item.V_Type</td>
+                <td style="font-size:small">@item.B_O</td>
+                <td style="font-size:small">@item.V_No</td>
+                <td style="font-size:small">@String.Format("{0:#,0}", (item.UV == null ? 0 : item.UV))</td>
+                <td style="font-size:small">
+                    @if (item.V_Type == "Bill" && item.Debit != 0)
+                    {
+                        <a href="/Billing/Add/image/@item.imgPath" target="_blank">
+                            @String.Format("{0:#,0}", (item.Debit == null ? 0 : item.Debit))
+                        </a>
+                    }
+                    else
+                    {
+                        @String.Format("{0:#,0}", (item.Debit == null ? 0 : item.Debit))
+                    }
+
+                    
+                </td>
+                <td style="font-size:small">
+                    @{ 
+                        string urll = string.Empty;
+                        if (item.V_Type == "BPV")
+                        {
+                            urll = "/Edit/GetDatabyIDBankPaymentVoucher/" + @item.V_ID; 
+                        }
+                    else{
+                            urll = "/Edit/CashPaymentVoucherEdit/" + @item.V_ID; 
+                       }
+                    }
+                    @if (item.Credit == 0)
+                    {
+                        
+                            @String.Format("{0:#,0}", (item.Credit == null ? 0 : item.Credit))
+                        
+                    }
+                    else
+                    {
+                        <a href="@urll" target="_blank">
+                            @String.Format("{0:#,0}", (item.Credit == null ? 0 : item.Credit))
+                        </a>
+                    }
+
+
+                </td>
+
+                @{
+                    string val3 = string.Empty;
+                    var val1 = item.Balance.ToString().Contains("-");
+                    if (val1)
+                    {
+                        var val2 = item.Balance * (-1);
+                        val3 = "(" + @String.Format("{0:#,0}", (val2 == null ? 0 : val2)) + ")";
+                    }
+                    else
+                    {
+                        val3 = @String.Format("{0:#,0}", (item.Balance == null ? 0 : item.Balance));
+                    }
+
+                }
+
+                <td style="font-size:small">@val3</td>
+
+
+
+            </tr>
+        }
+    </tbody>
+</table>
