@@ -1,0 +1,812 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Mima_Finance_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Accounts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bankId" Type="int" />
+    <Property Name="accountNumber" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Bank">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Bank" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Bank_Details">
+    <Key>
+      <PropertyRef Name="Bank_ID" />
+    </Key>
+    <Property Name="Bank_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Bank" Type="varchar" MaxLength="50" />
+    <Property Name="Org" Type="varchar" MaxLength="100" />
+    <Property Name="Branch" Type="varchar" MaxLength="100" />
+    <Property Name="Account" Type="bigint" />
+  </EntityType>
+  <EntityType Name="bankPaymentVoucher">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Vnumber" Type="varchar" MaxLength="50" />
+    <Property Name="Date" Type="varchar" MaxLength="50" />
+    <Property Name="ChequeNo" Type="varchar" MaxLength="50" />
+    <Property Name="Bank" Type="varchar" MaxLength="50" />
+    <Property Name="Org" Type="varchar" MaxLength="100" />
+    <Property Name="Branch" Type="varchar" MaxLength="50" />
+    <Property Name="Account" Type="varchar" MaxLength="50" />
+    <Property Name="PaidTo" Type="varchar" MaxLength="500" />
+    <Property Name="Control" Type="varchar" MaxLength="500" />
+    <Property Name="Category" Type="varchar" MaxLength="50" />
+    <Property Name="Amount" Type="bigint" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="Rupees" Type="varchar" MaxLength="500" />
+    <Property Name="filterDate" Type="varchar" MaxLength="50" />
+    <Property Name="createAT" Type="datetime" />
+    <Property Name="isPending" Type="bit" />
+    <Property Name="isCancel" Type="bit" />
+    <Property Name="pdcDate" Type="datetime" />
+    <Property Name="isMultiplecheque" Type="bit" />
+    <Property Name="taxPercentage" Type="int" />
+    <Property Name="TaxAmount" Type="int" />
+  </EntityType>
+  <EntityType Name="bankPaymentVoucher_OLD">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Vnumber" Type="varchar" MaxLength="50" />
+    <Property Name="Date" Type="varchar" MaxLength="50" />
+    <Property Name="ChequeNo" Type="varchar" MaxLength="50" />
+    <Property Name="Bank" Type="varchar" MaxLength="50" />
+    <Property Name="Org" Type="varchar" MaxLength="100" />
+    <Property Name="Branch" Type="varchar" MaxLength="50" />
+    <Property Name="Account" Type="varchar" MaxLength="50" />
+    <Property Name="PaidTo" Type="varchar" MaxLength="500" />
+    <Property Name="Control" Type="varchar" MaxLength="500" />
+    <Property Name="Category" Type="varchar" MaxLength="50" />
+    <Property Name="Amount" Type="bigint" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="Rupees" Type="varchar" MaxLength="500" />
+    <Property Name="filterDate" Type="varchar" MaxLength="50" />
+    <Property Name="createAT" Type="datetime" />
+    <Property Name="isPending" Type="bit" />
+    <Property Name="isCancel" Type="bit" />
+    <Property Name="pdcDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="BankReceiptVoucher">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VNumber" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="ChequeNo" Type="varchar" MaxLength="50" />
+    <Property Name="Bank" Type="varchar" MaxLength="50" />
+    <Property Name="Org" Type="varchar" MaxLength="100" />
+    <Property Name="Branch" Type="varchar" MaxLength="50" />
+    <Property Name="Account" Type="varchar" MaxLength="50" />
+    <Property Name="Category" Type="varchar" MaxLength="50" />
+    <Property Name="Received_From" Type="varchar" MaxLength="50" />
+    <Property Name="A/C_Description" Type="varchar" MaxLength="50" />
+    <Property Name="Amount" Type="int" />
+    <Property Name="Rupees" Type="varchar" MaxLength="500" />
+    <Property Name="Narration" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Billing">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Bill_id" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Control" Type="varchar" MaxLength="100" />
+    <Property Name="Category" Type="varchar" MaxLength="50" />
+    <Property Name="Amount" Type="bigint" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="Date" Type="date" />
+    <Property Name="imgPath" Type="varchar" MaxLength="500" />
+    <Property Name="base64" Type="varchar(max)" />
+    <Property Name="createAt" Type="datetime" />
+    <Property Name="isCancell" Type="bit" />
+    <Property Name="isPending" Type="bit" />
+    <Property Name="isProjectbill" Type="bit" />
+    <Property Name="unVerifiedBill_id" Type="varchar" MaxLength="50" />
+    <Property Name="unVerifedbillSQLid" Type="int" />
+  </EntityType>
+  <EntityType Name="Billing_OLD">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Bill_id" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Control" Type="varchar" MaxLength="50" />
+    <Property Name="Category" Type="varchar" MaxLength="50" />
+    <Property Name="Amount" Type="bigint" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="Date" Type="date" />
+    <Property Name="imgPath" Type="varchar" MaxLength="500" />
+    <Property Name="base64" Type="varchar(max)" />
+    <Property Name="createAt" Type="datetime" />
+    <Property Name="isCancell" Type="bit" />
+    <Property Name="isPending" Type="bit" />
+  </EntityType>
+  <EntityType Name="Billing_UnVerified">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Bill_id" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Control" Type="varchar" MaxLength="50" />
+    <Property Name="Category" Type="varchar" MaxLength="50" />
+    <Property Name="Amount" Type="bigint" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="Date" Type="date" />
+    <Property Name="imgPath" Type="varchar" MaxLength="500" />
+    <Property Name="base64" Type="varchar(max)" />
+    <Property Name="createAt" Type="datetime" />
+    <Property Name="isCancell" Type="bit" />
+    <Property Name="isPending" Type="bit" />
+    <Property Name="isMove" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Mima_Finance_.dbo.Branch' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Branch">
+    <Key>
+      <PropertyRef Name="BankID" />
+    </Key>
+    <Property Name="BankID" Type="int" Nullable="false" />
+    <Property Name="BarnchName" Type="varchar" MaxLength="100" />
+    <Property Name="BankAddress" Type="varchar" MaxLength="100" />
+    <Property Name="BranchName" Type="varchar" MaxLength="50" />
+    <Property Name="BranchCode" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Calendar">
+    <Key>
+      <PropertyRef Name="Date_ID" />
+    </Key>
+    <Property Name="Date_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Datekey" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="MonthYear" Type="varchar" MaxLength="30" />
+    <Property Name="DayOfYear" Type="smallint" />
+    <Property Name="DayNo" Type="tinyint" />
+    <Property Name="DateName" Type="varchar" MaxLength="50" />
+    <Property Name="BusinessDayNo" Type="int" />
+    <Property Name="DayOfWeek" Type="tinyint" />
+    <Property Name="WeekDayName" Type="varchar" MaxLength="10" />
+    <Property Name="WeekNo" Type="tinyint" />
+    <Property Name="WeekOfMonth" Type="tinyint" />
+    <Property Name="DOWInMonth" Type="tinyint" />
+    <Property Name="WeekOfYear" Type="tinyint" />
+    <Property Name="ISOWeekOfYear" Type="tinyint" />
+    <Property Name="Month" Type="tinyint" />
+    <Property Name="MonthName" Type="varchar" MaxLength="10" />
+    <Property Name="QuarterNo" Type="tinyint" />
+    <Property Name="QuarterName" Type="varchar" MaxLength="6" />
+    <Property Name="Year" Type="int" />
+    <Property Name="FirstDayofWeek" Type="date" />
+    <Property Name="LastDayofWeek" Type="date" />
+    <Property Name="FirstDayOfMonth" Type="date" />
+    <Property Name="LastDayOfMonth" Type="date" />
+    <Property Name="FirstDayOfQuarter" Type="date" />
+    <Property Name="LastDayOfQuarter" Type="date" />
+    <Property Name="FirstDayOfYear" Type="date" />
+    <Property Name="LastDayOfYear" Type="date" />
+    <Property Name="FirstDayOfNextMonth" Type="date" />
+    <Property Name="FirstDayOfNextYear" Type="date" />
+    <Property Name="IsWeekend" Type="tinyint" />
+    <Property Name="IsHoliday" Type="tinyint" />
+    <Property Name="HolidayDescription" Type="varchar" MaxLength="800" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="cashPaymentVoucher">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Vnumber" Type="varchar" MaxLength="50" />
+    <Property Name="Date" Type="varchar" MaxLength="50" />
+    <Property Name="PaidTo" Type="varchar" MaxLength="500" />
+    <Property Name="Control" Type="varchar" MaxLength="500" />
+    <Property Name="Category" Type="varchar" MaxLength="50" />
+    <Property Name="Amount" Type="bigint" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="Rupees" Type="varchar" MaxLength="500" />
+    <Property Name="filterDate" Type="varchar" MaxLength="50" />
+    <Property Name="createAT" Type="datetime" />
+    <Property Name="isPending" Type="bit" />
+    <Property Name="isCancel" Type="bit" />
+  </EntityType>
+  <EntityType Name="cashPaymentVoucher_OLD">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Vnumber" Type="varchar" MaxLength="50" />
+    <Property Name="Date" Type="varchar" MaxLength="50" />
+    <Property Name="PaidTo" Type="varchar" MaxLength="500" />
+    <Property Name="Control" Type="varchar" MaxLength="500" />
+    <Property Name="Category" Type="varchar" MaxLength="50" />
+    <Property Name="Amount" Type="bigint" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="Rupees" Type="varchar" MaxLength="500" />
+    <Property Name="filterDate" Type="varchar" MaxLength="50" />
+    <Property Name="createAT" Type="datetime" />
+    <Property Name="isPending" Type="bit" />
+    <Property Name="isCancel" Type="bit" />
+  </EntityType>
+  <EntityType Name="CashReceiptVoucher">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VNumber" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Received_From" Type="varchar" MaxLength="50" />
+    <Property Name="Category" Type="varchar" MaxLength="50" />
+    <Property Name="A/C_Description" Type="varchar" MaxLength="100" />
+    <Property Name="Amount" Type="int" />
+    <Property Name="Rupees" Type="varchar" MaxLength="500" />
+    <Property Name="Narration" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Mima_Finance_.dbo.Category' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Category" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Mima_Finance_.dbo.Client' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ClientID" />
+    </Key>
+    <Property Name="ClientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientName" Type="varchar" MaxLength="100" />
+    <Property Name="ClientRef" Type="varchar" MaxLength="100" />
+    <Property Name="ClientCity" Type="varchar" MaxLength="100" />
+    <Property Name="ClientPhone" Type="varchar" MaxLength="50" />
+    <Property Name="ClientAddress" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Mima_Finance_.dbo.Company' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Name="CompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Control_Details">
+    <Key>
+      <PropertyRef Name="Control_ID" />
+    </Key>
+    <Property Name="Control_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Control" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Mima_Finance_.dbo.Customers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Mima_Finance_.dbo.Daily_Cash' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Daily_Cash">
+          <Property Name="Payment_Date" Type="datetime" />
+          <Property Name="Supplier_Other" Type="varchar" MaxLength="50" />
+          <Property Name="Payment_Against" Type="varchar" MaxLength="50" />
+          <Property Name="Comapny" Type="varchar" MaxLength="50" />
+          <Property Name="Department" Type="varchar" MaxLength="50" />
+          <Property Name="Expense" Type="varchar" MaxLength="50" />
+          <Property Name="Bank_Cash" Type="varchar" MaxLength="50" />
+          <Property Name="Bill_Amount" Type="money" />
+          <Property Name="Tax_Rate" Type="varchar" MaxLength="50" />
+          <Property Name="Tax" Type="money" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="Ref_Inst_Nos" Type="varchar" MaxLength="50" />
+          <Property Name="Ref_V_Type" Type="varchar" MaxLength="50" />
+          <Property Name="Remarks" Type="varchar" MaxLength="200" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Mima_Finance_.dbo.Expense' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Expense">
+    <Key>
+      <PropertyRef Name="ExpID" />
+    </Key>
+    <Property Name="ExpID" Type="int" Nullable="false" />
+    <Property Name="Exp" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" />
+    <Property Name="passwordq" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Mima_Finance_.dbo.Market_Data' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Market_Data">
+          <Property Name="Category" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Bill no" Type="varchar" MaxLength="50" />
+          <Property Name="Date" Type="varchar" MaxLength="50" />
+          <Property Name="Particulars" Type="varchar" MaxLength="1000" />
+          <Property Name="Project " Type="varchar" MaxLength="100" />
+          <Property Name="Ref" Type="varchar" MaxLength="50" />
+          <Property Name="Bank" Type="varchar" MaxLength="50" />
+          <Property Name="Bills" Type="varchar" MaxLength="50" />
+          <Property Name="Payment" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Mima_Finance_.dbo.Market_Data_OLD' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Market_Data_OLD">
+          <Property Name="Category" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Bill no" Type="varchar" MaxLength="50" />
+          <Property Name="Date" Type="varchar" MaxLength="50" />
+          <Property Name="Particulars" Type="varchar" MaxLength="1000" />
+          <Property Name="Project " Type="varchar" MaxLength="50" />
+          <Property Name="Ref" Type="varchar" MaxLength="50" />
+          <Property Name="Bank" Type="varchar" MaxLength="50" />
+          <Property Name="Bills" Type="varchar" MaxLength="50" />
+          <Property Name="Payment" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+  <EntityType Name="multipleCheque">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mainTableRowID" Type="int" Nullable="false" />
+    <Property Name="voucher_id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="chequeno" Type="int" />
+    <Property Name="amount" Type="int" />
+    <Property Name="createAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Paid_to_Details">
+    <Key>
+      <PropertyRef Name="Paid_to_ID" />
+    </Key>
+    <Property Name="Paid_to_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Paid_to" Type="varchar" MaxLength="100" />
+    <Property Name="category" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Payable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Payment_Date" Type="datetime" />
+    <Property Name="Supplier_Other" Type="varchar" MaxLength="50" />
+    <Property Name="Payment_Against" Type="varchar" MaxLength="50" />
+    <Property Name="Comapny" Type="varchar" MaxLength="50" />
+    <Property Name="Department" Type="varchar" MaxLength="50" />
+    <Property Name="Expense" Type="varchar" MaxLength="50" />
+    <Property Name="Bank_Cash" Type="varchar" MaxLength="50" />
+    <Property Name="Bill_Amount" Type="money" />
+    <Property Name="Tax_Rate" Type="varchar" MaxLength="50" />
+    <Property Name="Tax" Type="money" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="Ref_Inst_Nos" Type="varchar" MaxLength="50" />
+    <Property Name="Ref_V_Type" Type="varchar" MaxLength="50" />
+    <Property Name="Remarks" Type="varchar" MaxLength="200" />
+    <Property Name="isActive" Type="bit" />
+    <Property Name="createAt" Type="datetime" />
+    <Property Name="updateAT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="pendingVoucherChequeImgs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="voucherID" Type="varchar" MaxLength="50" />
+    <Property Name="sqlRowID" Type="int" />
+    <Property Name="createat" Type="datetime" />
+    <Property Name="imapath" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Recievable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="GlCode" Type="varchar" MaxLength="50" />
+    <Property Name="number_Instrument" Type="varchar" MaxLength="50" />
+    <Property Name="Date_Instrument" Type="varchar" MaxLength="50" />
+    <Property Name="bank_Instrument" Type="varchar" MaxLength="50" />
+    <Property Name="company" Type="varchar" MaxLength="50" />
+    <Property Name="department" Type="varchar" MaxLength="50" />
+    <Property Name="invoice_amount" Type="bigint" />
+    <Property Name="rate" Type="varchar" MaxLength="50" />
+    <Property Name="tax" Type="int" />
+    <Property Name="wst" Type="int" />
+    <Property Name="totalAmount" Type="bigint" />
+    <Property Name="bank_cash_ToBeDepositedvarchar" Type="varchar" MaxLength="50" />
+    <Property Name="date_ToBeDeposited" Type="varchar" MaxLength="50" />
+    <Property Name="comments" Type="varchar" MaxLength="1000" />
+    <Property Name="isActive" Type="bit" />
+    <Property Name="creatAt" Type="datetime" />
+    <Property Name="updateAt" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Mima_Finance_.dbo.Supplier' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="SupplierID" Type="int" Nullable="false" />
+    <Property Name="SupplierName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Mima_Finance_.dbo.SystemEntries_Bill' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SystemEntries_Bill">
+    <Key>
+      <PropertyRef Name="V_Type" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="V_Type" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Bill_id" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Control" Type="varchar" MaxLength="50" />
+    <Property Name="Category" Type="varchar" MaxLength="50" />
+    <Property Name="Amount" Type="bigint" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="Date" Type="date" />
+    <Property Name="imgPath" Type="varchar" MaxLength="500" />
+    <Property Name="base64" Type="varchar(max)" />
+    <Property Name="createAt" Type="datetime" />
+    <Property Name="isCancell" Type="bit" />
+    <Property Name="isPending" Type="bit" />
+    <Property Name="isProjectbill" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Mima_Finance_.dbo.SystemEntries_BPV' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SystemEntries_BPV">
+    <Key>
+      <PropertyRef Name="V_Type" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="V_Type" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Vnumber" Type="varchar" MaxLength="50" />
+    <Property Name="Date" Type="varchar" MaxLength="50" />
+    <Property Name="ChequeNo" Type="varchar" MaxLength="50" />
+    <Property Name="Bank" Type="varchar" MaxLength="50" />
+    <Property Name="Org" Type="varchar" MaxLength="100" />
+    <Property Name="Branch" Type="varchar" MaxLength="50" />
+    <Property Name="Account" Type="varchar" MaxLength="50" />
+    <Property Name="PaidTo" Type="varchar" MaxLength="500" />
+    <Property Name="Control" Type="varchar" MaxLength="500" />
+    <Property Name="Category" Type="varchar" MaxLength="50" />
+    <Property Name="Amount" Type="bigint" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="Rupees" Type="varchar" MaxLength="500" />
+    <Property Name="filterDate" Type="varchar" MaxLength="50" />
+    <Property Name="createAT" Type="datetime" />
+    <Property Name="isPending" Type="bit" />
+    <Property Name="isCancel" Type="bit" />
+    <Property Name="pdcDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Mima_Finance_.dbo.SystemEntries_CPV' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SystemEntries_CPV">
+    <Key>
+      <PropertyRef Name="V_Type" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="V_Type" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Vnumber" Type="varchar" MaxLength="50" />
+    <Property Name="Date" Type="varchar" MaxLength="50" />
+    <Property Name="PaidTo" Type="varchar" MaxLength="500" />
+    <Property Name="Control" Type="varchar" MaxLength="500" />
+    <Property Name="Category" Type="varchar" MaxLength="50" />
+    <Property Name="Amount" Type="bigint" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="Rupees" Type="varchar" MaxLength="500" />
+    <Property Name="filterDate" Type="varchar" MaxLength="50" />
+    <Property Name="createAT" Type="datetime" />
+    <Property Name="isPending" Type="bit" />
+    <Property Name="isCancel" Type="bit" />
+  </EntityType>
+  <EntityType Name="UnVerified_project_bills">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Bill_id" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Control" Type="varchar" MaxLength="50" />
+    <Property Name="Category" Type="varchar" MaxLength="50" />
+    <Property Name="Amount" Type="bigint" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="Date" Type="date" />
+    <Property Name="imgPath" Type="varchar" MaxLength="500" />
+    <Property Name="base64" Type="varchar(max)" />
+    <Property Name="createAt" Type="datetime" />
+    <Property Name="isCancell" Type="bit" />
+    <Property Name="isPending" Type="bit" />
+    <Property Name="isMove" Type="bit" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Name" Type="varchar" MaxLength="50" />
+    <Property Name="User_Role" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Function Name="AddBanks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Banks" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Bank_Payment_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="S_Date" Type="datetime" Mode="In" />
+    <Parameter Name="E_Date" Type="datetime" Mode="In" />
+    <Parameter Name="isPending" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Bank_Payment_Details_Chart" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="S_Date" Type="datetime" Mode="In" />
+    <Parameter Name="E_Date" Type="datetime" Mode="In" />
+    <Parameter Name="isPending" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Cash_Payment_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="S_Date" Type="datetime" Mode="In" />
+    <Parameter Name="E_Date" Type="datetime" Mode="In" />
+    <Parameter Name="isPending" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Controller_Volum_Chart" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="S_Date" Type="datetime" Mode="In" />
+    <Parameter Name="E_Date" Type="datetime" Mode="In" />
+    <Parameter Name="isPending" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="CountOfBilling" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="S_Date" Type="datetime" Mode="In" />
+    <Parameter Name="E_Date" Type="datetime" Mode="In" />
+    <Parameter Name="isPending" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="fn_ParseString" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CSVString" Type="varchar" Mode="In" />
+    <Parameter Name="Delimiter" Type="varchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="s" Type="varchar" MaxLength="1000" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="sp_AddBanks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Banks" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_bankPaymentVoucherList_ORDER_BY_desc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_Billing_Project_List_ORDER_BY_desc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_Billing_UV_Project_List_ORDER_BY_desc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_BillingsList_ORDER_BY_desc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_BillingsUVList_ORDER_BY_desc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_Cancel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="tableName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_CancelforUnvBill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="tableName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_id_generater_for_Billing" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_id_generater_for_Billing_UnVerified" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_list_of_Billing_ids_for_Billing_orderby_Bill_id" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_list_of_Billing_ids_for_Billing_UnVerified_orderby_Bill_id" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_Mima_Finance__Category" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_PendingRecord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_pendingToSubmit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="tableName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spPopulateDateDimension" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SumOfAmountBilling" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="S_Date" Type="datetime" Mode="In" />
+    <Parameter Name="E_Date" Type="datetime" Mode="In" />
+    <Parameter Name="isPending" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Total_Bank_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="S_Date" Type="datetime" Mode="In" />
+    <Parameter Name="E_Date" Type="datetime" Mode="In" />
+    <Parameter Name="isPending" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Total_Bank_Pending_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="S_Date" Type="datetime" Mode="In" />
+    <Parameter Name="E_Date" Type="datetime" Mode="In" />
+    <Parameter Name="isPending" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Total_Bank_Pending_Units" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="S_Date" Type="datetime" Mode="In" />
+    <Parameter Name="E_Date" Type="datetime" Mode="In" />
+    <Parameter Name="isPending" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Total_Bank_Units" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="S_Date" Type="datetime" Mode="In" />
+    <Parameter Name="E_Date" Type="datetime" Mode="In" />
+    <Parameter Name="isPending" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Total_Bank_Volume" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="S_Date" Type="datetime" Mode="In" />
+    <Parameter Name="E_Date" Type="datetime" Mode="In" />
+    <Parameter Name="isPending" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Total_Cash_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="S_Date" Type="datetime" Mode="In" />
+    <Parameter Name="E_Date" Type="datetime" Mode="In" />
+    <Parameter Name="isPending" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Total_Cash_Pending_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="S_Date" Type="datetime" Mode="In" />
+    <Parameter Name="E_Date" Type="datetime" Mode="In" />
+    <Parameter Name="isPending" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Total_Cash_Pending_Units" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="S_Date" Type="datetime" Mode="In" />
+    <Parameter Name="E_Date" Type="datetime" Mode="In" />
+    <Parameter Name="isPending" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Total_Cash_Units" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="S_Date" Type="datetime" Mode="In" />
+    <Parameter Name="E_Date" Type="datetime" Mode="In" />
+    <Parameter Name="isPending" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Total_Cash_Volume" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="S_Date" Type="datetime" Mode="In" />
+    <Parameter Name="E_Date" Type="datetime" Mode="In" />
+    <Parameter Name="isPending" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Usp_DataEntry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="Mima_Finance_ModelStoreContainer">
+    <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bank" EntityType="Self.Bank" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bank_Details" EntityType="Self.Bank_Details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bankPaymentVoucher" EntityType="Self.bankPaymentVoucher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bankPaymentVoucher_OLD" EntityType="Self.bankPaymentVoucher_OLD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BankReceiptVoucher" EntityType="Self.BankReceiptVoucher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Billing" EntityType="Self.Billing" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Billing_OLD" EntityType="Self.Billing_OLD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Billing_UnVerified" EntityType="Self.Billing_UnVerified" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Calendar" EntityType="Self.Calendar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cashPaymentVoucher" EntityType="Self.cashPaymentVoucher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cashPaymentVoucher_OLD" EntityType="Self.cashPaymentVoucher_OLD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CashReceiptVoucher" EntityType="Self.CashReceiptVoucher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Control_Details" EntityType="Self.Control_Details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="multipleCheque" EntityType="Self.multipleCheque" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Paid_to_Details" EntityType="Self.Paid_to_Details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payable" EntityType="Self.Payable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pendingVoucherChequeImgs" EntityType="Self.pendingVoucherChequeImgs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recievable" EntityType="Self.Recievable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UnVerified_project_bills" EntityType="Self.UnVerified_project_bills" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Branch" EntityType="Self.Branch" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Branch].[BankID] AS [BankID], 
+    [Branch].[BarnchName] AS [BarnchName], 
+    [Branch].[BankAddress] AS [BankAddress], 
+    [Branch].[BranchName] AS [BranchName], 
+    [Branch].[BranchCode] AS [BranchCode]
+    FROM [dbo].[Branch] AS [Branch]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Category" EntityType="Self.Category" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Category].[CategoryID] AS [CategoryID], 
+    [Category].[Category] AS [Category]
+    FROM [dbo].[Category] AS [Category]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Client" EntityType="Self.Client" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Client].[ClientID] AS [ClientID], 
+    [Client].[ClientName] AS [ClientName], 
+    [Client].[ClientRef] AS [ClientRef], 
+    [Client].[ClientCity] AS [ClientCity], 
+    [Client].[ClientPhone] AS [ClientPhone], 
+    [Client].[ClientAddress] AS [ClientAddress]
+    FROM [dbo].[Client] AS [Client]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Company" EntityType="Self.Company" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Company].[CompanyID] AS [CompanyID], 
+    [Company].[CompanyName] AS [CompanyName]
+    FROM [dbo].[Company] AS [Company]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Customers" EntityType="Self.Customers" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Customers].[id] AS [id], 
+    [Customers].[name] AS [name]
+    FROM [dbo].[Customers] AS [Customers]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Expense" EntityType="Self.Expense" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Expense].[ExpID] AS [ExpID], 
+    [Expense].[Exp] AS [Exp]
+    FROM [dbo].[Expense] AS [Expense]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Supplier" EntityType="Self.Supplier" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Supplier].[SupplierID] AS [SupplierID], 
+    [Supplier].[SupplierName] AS [SupplierName]
+    FROM [dbo].[Supplier] AS [Supplier]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SystemEntries_Bill" EntityType="Self.SystemEntries_Bill" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SystemEntries_Bill].[V_Type] AS [V_Type], 
+    [SystemEntries_Bill].[id] AS [id], 
+    [SystemEntries_Bill].[Bill_id] AS [Bill_id], 
+    [SystemEntries_Bill].[Name] AS [Name], 
+    [SystemEntries_Bill].[Control] AS [Control], 
+    [SystemEntries_Bill].[Category] AS [Category], 
+    [SystemEntries_Bill].[Amount] AS [Amount], 
+    [SystemEntries_Bill].[Description] AS [Description], 
+    [SystemEntries_Bill].[Date] AS [Date], 
+    [SystemEntries_Bill].[imgPath] AS [imgPath], 
+    [SystemEntries_Bill].[base64] AS [base64], 
+    [SystemEntries_Bill].[createAt] AS [createAt], 
+    [SystemEntries_Bill].[isCancell] AS [isCancell], 
+    [SystemEntries_Bill].[isPending] AS [isPending], 
+    [SystemEntries_Bill].[isProjectbill] AS [isProjectbill]
+    FROM [dbo].[SystemEntries_Bill] AS [SystemEntries_Bill]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SystemEntries_BPV" EntityType="Self.SystemEntries_BPV" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SystemEntries_BPV].[V_Type] AS [V_Type], 
+    [SystemEntries_BPV].[id] AS [id], 
+    [SystemEntries_BPV].[Vnumber] AS [Vnumber], 
+    [SystemEntries_BPV].[Date] AS [Date], 
+    [SystemEntries_BPV].[ChequeNo] AS [ChequeNo], 
+    [SystemEntries_BPV].[Bank] AS [Bank], 
+    [SystemEntries_BPV].[Org] AS [Org], 
+    [SystemEntries_BPV].[Branch] AS [Branch], 
+    [SystemEntries_BPV].[Account] AS [Account], 
+    [SystemEntries_BPV].[PaidTo] AS [PaidTo], 
+    [SystemEntries_BPV].[Control] AS [Control], 
+    [SystemEntries_BPV].[Category] AS [Category], 
+    [SystemEntries_BPV].[Amount] AS [Amount], 
+    [SystemEntries_BPV].[Description] AS [Description], 
+    [SystemEntries_BPV].[Rupees] AS [Rupees], 
+    [SystemEntries_BPV].[filterDate] AS [filterDate], 
+    [SystemEntries_BPV].[createAT] AS [createAT], 
+    [SystemEntries_BPV].[isPending] AS [isPending], 
+    [SystemEntries_BPV].[isCancel] AS [isCancel], 
+    [SystemEntries_BPV].[pdcDate] AS [pdcDate]
+    FROM [dbo].[SystemEntries_BPV] AS [SystemEntries_BPV]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SystemEntries_CPV" EntityType="Self.SystemEntries_CPV" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SystemEntries_CPV].[V_Type] AS [V_Type], 
+    [SystemEntries_CPV].[id] AS [id], 
+    [SystemEntries_CPV].[Vnumber] AS [Vnumber], 
+    [SystemEntries_CPV].[Date] AS [Date], 
+    [SystemEntries_CPV].[PaidTo] AS [PaidTo], 
+    [SystemEntries_CPV].[Control] AS [Control], 
+    [SystemEntries_CPV].[Category] AS [Category], 
+    [SystemEntries_CPV].[Amount] AS [Amount], 
+    [SystemEntries_CPV].[Description] AS [Description], 
+    [SystemEntries_CPV].[Rupees] AS [Rupees], 
+    [SystemEntries_CPV].[filterDate] AS [filterDate], 
+    [SystemEntries_CPV].[createAT] AS [createAT], 
+    [SystemEntries_CPV].[isPending] AS [isPending], 
+    [SystemEntries_CPV].[isCancel] AS [isCancel]
+    FROM [dbo].[SystemEntries_CPV] AS [SystemEntries_CPV]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

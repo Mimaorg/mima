@@ -1,0 +1,829 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Mima_Finance_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Mima_Finance_Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="Mima_Finance_Model.Account" />
+    <EntitySet Name="Banks" EntityType="Mima_Finance_Model.Bank" />
+    <EntitySet Name="Bank_Details" EntityType="Mima_Finance_Model.Bank_Details" />
+    <EntitySet Name="bankPaymentVouchers" EntityType="Mima_Finance_Model.bankPaymentVoucher" />
+    <EntitySet Name="bankPaymentVoucher_OLD" EntityType="Mima_Finance_Model.bankPaymentVoucher_OLD" />
+    <EntitySet Name="BankReceiptVouchers" EntityType="Mima_Finance_Model.BankReceiptVoucher" />
+    <EntitySet Name="Billings" EntityType="Mima_Finance_Model.Billing" />
+    <EntitySet Name="Billing_OLD" EntityType="Mima_Finance_Model.Billing_OLD" />
+    <EntitySet Name="Billing_UnVerified" EntityType="Mima_Finance_Model.Billing_UnVerified" />
+    <EntitySet Name="Calendars" EntityType="Mima_Finance_Model.Calendar" />
+    <EntitySet Name="cashPaymentVouchers" EntityType="Mima_Finance_Model.cashPaymentVoucher" />
+    <EntitySet Name="cashPaymentVoucher_OLD" EntityType="Mima_Finance_Model.cashPaymentVoucher_OLD" />
+    <EntitySet Name="CashReceiptVouchers" EntityType="Mima_Finance_Model.CashReceiptVoucher" />
+    <EntitySet Name="Control_Details" EntityType="Mima_Finance_Model.Control_Details" />
+    <EntitySet Name="Logins" EntityType="Mima_Finance_Model.Login" />
+    <EntitySet Name="multipleCheques" EntityType="Mima_Finance_Model.multipleCheque" />
+    <EntitySet Name="Paid_to_Details" EntityType="Mima_Finance_Model.Paid_to_Details" />
+    <EntitySet Name="Payables" EntityType="Mima_Finance_Model.Payable" />
+    <EntitySet Name="pendingVoucherChequeImgs" EntityType="Mima_Finance_Model.pendingVoucherChequeImg" />
+    <EntitySet Name="Recievables" EntityType="Mima_Finance_Model.Recievable" />
+    <EntitySet Name="UnVerified_project_bills" EntityType="Mima_Finance_Model.UnVerified_project_bills" />
+    <EntitySet Name="Users" EntityType="Mima_Finance_Model.User" />
+    <EntitySet Name="Branches" EntityType="Mima_Finance_Model.Branch" />
+    <EntitySet Name="Categories" EntityType="Mima_Finance_Model.Category" />
+    <EntitySet Name="Clients" EntityType="Mima_Finance_Model.Client" />
+    <EntitySet Name="Companies" EntityType="Mima_Finance_Model.Company" />
+    <EntitySet Name="Customers" EntityType="Mima_Finance_Model.Customer" />
+    <EntitySet Name="Expenses" EntityType="Mima_Finance_Model.Expense" />
+    <EntitySet Name="Suppliers" EntityType="Mima_Finance_Model.Supplier" />
+    <EntitySet Name="SystemEntries_Bill" EntityType="Mima_Finance_Model.SystemEntries_Bill" />
+    <EntitySet Name="SystemEntries_BPV" EntityType="Mima_Finance_Model.SystemEntries_BPV" />
+    <EntitySet Name="SystemEntries_CPV" EntityType="Mima_Finance_Model.SystemEntries_CPV" />
+    <FunctionImport Name="AddBanks">
+      <Parameter Name="Banks" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Bank_Payment_Details" ReturnType="Collection(Mima_Finance_Model.Bank_Payment_Details_Result)">
+      <Parameter Name="S_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="E_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="isPending" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Bank_Payment_Details_Chart" ReturnType="Collection(Mima_Finance_Model.Bank_Payment_Details_Chart_Result)">
+      <Parameter Name="S_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="E_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="isPending" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Cash_Payment_Details" ReturnType="Collection(Mima_Finance_Model.Cash_Payment_Details_Result)">
+      <Parameter Name="S_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="E_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="isPending" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Controller_Volum_Chart" ReturnType="Collection(Mima_Finance_Model.Controller_Volum_Chart_Result)">
+      <Parameter Name="S_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="E_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="isPending" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="CountOfBilling" ReturnType="Collection(Int32)">
+      <Parameter Name="S_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="E_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="isPending" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="fn_ParseString" IsComposable="true" ReturnType="Collection(String)">
+      <Parameter Name="CSVString" Mode="In" Type="String" />
+      <Parameter Name="Delimiter" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_AddBanks">
+      <Parameter Name="Banks" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_bankPaymentVoucherList_ORDER_BY_desc" ReturnType="Collection(Mima_Finance_Model.sp_bankPaymentVoucherList_ORDER_BY_desc_Result)" />
+    <FunctionImport Name="sp_Billing_Project_List_ORDER_BY_desc" ReturnType="Collection(Mima_Finance_Model.sp_Billing_Project_List_ORDER_BY_desc_Result)" />
+    <FunctionImport Name="sp_Billing_UV_Project_List_ORDER_BY_desc" ReturnType="Collection(Mima_Finance_Model.sp_Billing_UV_Project_List_ORDER_BY_desc_Result)" />
+    <FunctionImport Name="sp_BillingsList_ORDER_BY_desc" ReturnType="Collection(Mima_Finance_Model.sp_BillingsList_ORDER_BY_desc_Result)" />
+    <FunctionImport Name="sp_BillingsUVList_ORDER_BY_desc" ReturnType="Collection(Mima_Finance_Model.sp_BillingsUVList_ORDER_BY_desc_Result)" />
+    <FunctionImport Name="sp_Cancel">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="tableName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CancelforUnvBill">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="tableName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_id_generater_for_Billing" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="sp_id_generater_for_Billing_UnVerified" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="sp_list_of_Billing_ids_for_Billing_orderby_Bill_id" ReturnType="Collection(Mima_Finance_Model.sp_list_of_Billing_ids_for_Billing_orderby_Bill_id_Result)" />
+    <FunctionImport Name="sp_list_of_Billing_ids_for_Billing_UnVerified_orderby_Bill_id" ReturnType="Collection(Mima_Finance_Model.sp_list_of_Billing_ids_for_Billing_UnVerified_orderby_Bill_id_Result)" />
+    <FunctionImport Name="sp_Mima_Finance__Category" ReturnType="Collection(Mima_Finance_Model.sp_Mima_Finance__Category_Result)" />
+    <FunctionImport Name="sp_PendingRecord" ReturnType="Collection(Mima_Finance_Model.sp_PendingRecord_Result)" />
+    <FunctionImport Name="sp_pendingToSubmit">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="tableName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spPopulateDateDimension" />
+    <FunctionImport Name="SumOfAmountBilling" ReturnType="Collection(Int64)">
+      <Parameter Name="S_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="E_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="isPending" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Total_Bank_Details" ReturnType="Collection(Mima_Finance_Model.Total_Bank_Details_Result)">
+      <Parameter Name="S_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="E_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="isPending" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Total_Bank_Pending_Details" ReturnType="Collection(Mima_Finance_Model.Total_Bank_Pending_Details_Result)">
+      <Parameter Name="S_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="E_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="isPending" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Total_Bank_Pending_Units" ReturnType="Collection(Int32)">
+      <Parameter Name="S_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="E_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="isPending" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Total_Bank_Units" ReturnType="Collection(Int32)">
+      <Parameter Name="S_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="E_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="isPending" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Total_Bank_Volume" ReturnType="Collection(Int64)">
+      <Parameter Name="S_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="E_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="isPending" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Total_Cash_Details" ReturnType="Collection(Mima_Finance_Model.Total_Cash_Details_Result)">
+      <Parameter Name="S_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="E_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="isPending" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Total_Cash_Pending_Details" ReturnType="Collection(Mima_Finance_Model.Total_Cash_Pending_Details_Result)">
+      <Parameter Name="S_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="E_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="isPending" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Total_Cash_Pending_Units" ReturnType="Collection(Int32)">
+      <Parameter Name="S_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="E_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="isPending" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Total_Cash_Units" ReturnType="Collection(Int32)">
+      <Parameter Name="S_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="E_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="isPending" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Total_Cash_Volume" ReturnType="Collection(Int64)">
+      <Parameter Name="S_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="E_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="isPending" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Usp_DataEntry" />
+  </EntityContainer>
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="bankId" Type="Int32" />
+    <Property Name="accountNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Bank">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Bank1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Bank_Details">
+    <Key>
+      <PropertyRef Name="Bank_ID" />
+    </Key>
+    <Property Name="Bank_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Bank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Org" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Branch" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Account" Type="Int64" />
+  </EntityType>
+  <EntityType Name="bankPaymentVoucher">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Vnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ChequeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Bank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Org" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Branch" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PaidTo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Control" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Int64" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Rupees" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="filterDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createAT" Type="DateTime" Precision="3" />
+    <Property Name="isPending" Type="Boolean" />
+    <Property Name="isCancel" Type="Boolean" />
+    <Property Name="pdcDate" Type="DateTime" Precision="3" />
+    <Property Name="isMultiplecheque" Type="Boolean" />
+    <Property Name="taxPercentage" Type="Int32" />
+    <Property Name="TaxAmount" Type="Int32" />
+  </EntityType>
+  <EntityType Name="bankPaymentVoucher_OLD">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Vnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ChequeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Bank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Org" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Branch" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PaidTo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Control" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Int64" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Rupees" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="filterDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createAT" Type="DateTime" Precision="3" />
+    <Property Name="isPending" Type="Boolean" />
+    <Property Name="isCancel" Type="Boolean" />
+    <Property Name="pdcDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="BankReceiptVoucher">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VNumber" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="ChequeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Bank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Org" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Branch" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Received_From" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="A_C_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Int32" />
+    <Property Name="Rupees" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Narration" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Billing">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Bill_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Control" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Int64" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="imgPath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="base64" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="createAt" Type="DateTime" Precision="3" />
+    <Property Name="isCancell" Type="Boolean" />
+    <Property Name="isPending" Type="Boolean" />
+    <Property Name="isProjectbill" Type="Boolean" />
+    <Property Name="unVerifiedBill_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="unVerifedbillSQLid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Billing_OLD">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Bill_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Control" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Int64" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="imgPath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="base64" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="createAt" Type="DateTime" Precision="3" />
+    <Property Name="isCancell" Type="Boolean" />
+    <Property Name="isPending" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Billing_UnVerified">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Bill_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Control" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Int64" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="imgPath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="base64" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="createAt" Type="DateTime" Precision="3" />
+    <Property Name="isCancell" Type="Boolean" />
+    <Property Name="isPending" Type="Boolean" />
+    <Property Name="isMove" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Calendar">
+    <Key>
+      <PropertyRef Name="Date_ID" />
+    </Key>
+    <Property Name="Date_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Datekey" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="MonthYear" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="DayOfYear" Type="Int16" />
+    <Property Name="DayNo" Type="Byte" />
+    <Property Name="DateName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BusinessDayNo" Type="Int32" />
+    <Property Name="DayOfWeek" Type="Byte" />
+    <Property Name="WeekDayName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="WeekNo" Type="Byte" />
+    <Property Name="WeekOfMonth" Type="Byte" />
+    <Property Name="DOWInMonth" Type="Byte" />
+    <Property Name="WeekOfYear" Type="Byte" />
+    <Property Name="ISOWeekOfYear" Type="Byte" />
+    <Property Name="Month" Type="Byte" />
+    <Property Name="MonthName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="QuarterNo" Type="Byte" />
+    <Property Name="QuarterName" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="Year" Type="Int32" />
+    <Property Name="FirstDayofWeek" Type="DateTime" Precision="0" />
+    <Property Name="LastDayofWeek" Type="DateTime" Precision="0" />
+    <Property Name="FirstDayOfMonth" Type="DateTime" Precision="0" />
+    <Property Name="LastDayOfMonth" Type="DateTime" Precision="0" />
+    <Property Name="FirstDayOfQuarter" Type="DateTime" Precision="0" />
+    <Property Name="LastDayOfQuarter" Type="DateTime" Precision="0" />
+    <Property Name="FirstDayOfYear" Type="DateTime" Precision="0" />
+    <Property Name="LastDayOfYear" Type="DateTime" Precision="0" />
+    <Property Name="FirstDayOfNextMonth" Type="DateTime" Precision="0" />
+    <Property Name="FirstDayOfNextYear" Type="DateTime" Precision="0" />
+    <Property Name="IsWeekend" Type="Byte" />
+    <Property Name="IsHoliday" Type="Byte" />
+    <Property Name="HolidayDescription" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="cashPaymentVoucher">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Vnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PaidTo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Control" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Int64" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Rupees" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="filterDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createAT" Type="DateTime" Precision="3" />
+    <Property Name="isPending" Type="Boolean" />
+    <Property Name="isCancel" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="cashPaymentVoucher_OLD">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Vnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PaidTo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Control" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Int64" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Rupees" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="filterDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createAT" Type="DateTime" Precision="3" />
+    <Property Name="isPending" Type="Boolean" />
+    <Property Name="isCancel" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="CashReceiptVoucher">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VNumber" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Received_From" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="A_C_Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Int32" />
+    <Property Name="Rupees" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Narration" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Control_Details">
+    <Key>
+      <PropertyRef Name="Control_ID" />
+    </Key>
+    <Property Name="Control_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Control" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="passwordq" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="multipleCheque">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mainTableRowID" Type="Int32" Nullable="false" />
+    <Property Name="voucher_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="chequeno" Type="Int32" />
+    <Property Name="amount" Type="Int32" />
+    <Property Name="createAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Paid_to_Details">
+    <Key>
+      <PropertyRef Name="Paid_to_ID" />
+    </Key>
+    <Property Name="Paid_to_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Paid_to" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Payable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Payment_Date" Type="DateTime" Precision="3" />
+    <Property Name="Supplier_Other" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Payment_Against" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Comapny" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Expense" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Bank_Cash" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Bill_Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Tax_Rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tax" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Ref_Inst_Nos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ref_V_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="createAt" Type="DateTime" Precision="3" />
+    <Property Name="updateAT" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="pendingVoucherChequeImg">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="voucherID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sqlRowID" Type="Int32" />
+    <Property Name="createat" Type="DateTime" Precision="3" />
+    <Property Name="imapath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Recievable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GlCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="number_Instrument" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Date_Instrument" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="bank_Instrument" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="company" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="invoice_amount" Type="Int64" />
+    <Property Name="rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tax" Type="Int32" />
+    <Property Name="wst" Type="Int32" />
+    <Property Name="totalAmount" Type="Int64" />
+    <Property Name="bank_cash_ToBeDepositedvarchar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="date_ToBeDeposited" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="comments" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="creatAt" Type="DateTime" Precision="3" />
+    <Property Name="updateAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="UnVerified_project_bills">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Bill_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Control" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Int64" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="imgPath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="base64" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="createAt" Type="DateTime" Precision="3" />
+    <Property Name="isCancell" Type="Boolean" />
+    <Property Name="isPending" Type="Boolean" />
+    <Property Name="isMove" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="User_Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Branch">
+    <Key>
+      <PropertyRef Name="BankID" />
+    </Key>
+    <Property Name="BankID" Type="Int32" Nullable="false" />
+    <Property Name="BarnchName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BankAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BranchName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BranchCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Category1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ClientID" />
+    </Key>
+    <Property Name="ClientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ClientRef" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ClientCity" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ClientPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ClientAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Name="CompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Expense">
+    <Key>
+      <PropertyRef Name="ExpID" />
+    </Key>
+    <Property Name="ExpID" Type="Int32" Nullable="false" />
+    <Property Name="Exp" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="SupplierID" Type="Int32" Nullable="false" />
+    <Property Name="SupplierName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SystemEntries_Bill">
+    <Key>
+      <PropertyRef Name="V_Type" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="V_Type" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Bill_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Control" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Int64" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="imgPath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="base64" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="createAt" Type="DateTime" Precision="3" />
+    <Property Name="isCancell" Type="Boolean" />
+    <Property Name="isPending" Type="Boolean" />
+    <Property Name="isProjectbill" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="SystemEntries_BPV">
+    <Key>
+      <PropertyRef Name="V_Type" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="V_Type" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Vnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ChequeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Bank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Org" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Branch" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PaidTo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Control" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Int64" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Rupees" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="filterDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createAT" Type="DateTime" Precision="3" />
+    <Property Name="isPending" Type="Boolean" />
+    <Property Name="isCancel" Type="Boolean" />
+    <Property Name="pdcDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SystemEntries_CPV">
+    <Key>
+      <PropertyRef Name="V_Type" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="V_Type" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Vnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PaidTo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Control" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Int64" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Rupees" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="filterDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createAT" Type="DateTime" Precision="3" />
+    <Property Name="isPending" Type="Boolean" />
+    <Property Name="isCancel" Type="Boolean" />
+  </EntityType>
+  <ComplexType Name="Bank_Payment_Details_Result">
+    <Property Type="String" Name="Vnumber" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Date" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ChequeNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Bank" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PaidTo" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Control" Nullable="true" MaxLength="500" />
+    <Property Type="Int64" Name="Amount" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="filterDate" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Bank_Payment_Details_Chart_Result">
+    <Property Type="String" Name="Bank" Nullable="true" MaxLength="50" />
+    <Property Type="Int64" Name="Volume" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Cash_Payment_Details_Result">
+    <Property Type="String" Name="Vnumber" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Date" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PaidTo" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Control" Nullable="true" MaxLength="500" />
+    <Property Type="Int64" Name="Amount" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="filterDate" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Controller_Volum_Chart_Result">
+    <Property Type="String" Name="Control" Nullable="true" MaxLength="500" />
+    <Property Type="Int64" Name="Volume" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_bankPaymentVoucherList_ORDER_BY_desc_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Vnumber" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Date" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ChequeNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Bank" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Org" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Branch" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Account" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PaidTo" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Control" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Category" Nullable="true" MaxLength="50" />
+    <Property Type="Int64" Name="Amount" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Rupees" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="filterDate" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="createAT" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="isPending" Nullable="true" />
+    <Property Type="Boolean" Name="isCancel" Nullable="true" />
+    <Property Type="DateTime" Name="pdcDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="isMultiplecheque" Nullable="true" />
+    <Property Type="Int32" Name="taxPercentage" Nullable="true" />
+    <Property Type="Int32" Name="TaxAmount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_Billing_Project_List_ORDER_BY_desc_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Bill_id" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Control" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Category" Nullable="true" MaxLength="50" />
+    <Property Type="Int64" Name="Amount" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="Date" Nullable="true" />
+    <Property Type="String" Name="imgPath" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="base64" Nullable="true" />
+    <Property Type="DateTime" Name="createAt" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="isCancell" Nullable="true" />
+    <Property Type="Boolean" Name="isPending" Nullable="true" />
+    <Property Type="Boolean" Name="isProjectbill" Nullable="true" />
+    <Property Type="String" Name="unVerifiedBill_id" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="unVerifedbillSQLid" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_Billing_UV_Project_List_ORDER_BY_desc_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Bill_id" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Control" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Category" Nullable="true" MaxLength="50" />
+    <Property Type="Int64" Name="Amount" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="Date" Nullable="true" />
+    <Property Type="String" Name="imgPath" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="base64" Nullable="true" />
+    <Property Type="DateTime" Name="createAt" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="isCancell" Nullable="true" />
+    <Property Type="Boolean" Name="isPending" Nullable="true" />
+    <Property Type="Boolean" Name="isMove" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_BillingsList_ORDER_BY_desc_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Bill_id" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Control" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Category" Nullable="true" MaxLength="50" />
+    <Property Type="Int64" Name="Amount" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="Date" Nullable="true" />
+    <Property Type="String" Name="imgPath" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="base64" Nullable="true" />
+    <Property Type="DateTime" Name="createAt" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="isCancell" Nullable="true" />
+    <Property Type="Boolean" Name="isPending" Nullable="true" />
+    <Property Type="Boolean" Name="isProjectbill" Nullable="true" />
+    <Property Type="String" Name="unVerifiedBill_id" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="unVerifedbillSQLid" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_BillingsUVList_ORDER_BY_desc_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Bill_id" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Control" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Category" Nullable="true" MaxLength="50" />
+    <Property Type="Int64" Name="Amount" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="Date" Nullable="true" />
+    <Property Type="String" Name="imgPath" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="base64" Nullable="true" />
+    <Property Type="DateTime" Name="createAt" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="isCancell" Nullable="true" />
+    <Property Type="Boolean" Name="isPending" Nullable="true" />
+    <Property Type="Boolean" Name="isMove" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_list_of_Billing_ids_for_Billing_orderby_Bill_id_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Bill_id" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_list_of_Billing_ids_for_Billing_UnVerified_orderby_Bill_id_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Bill_id" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_Mima_Finance__Category_Result">
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="String" Name="Category" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="sp_PendingRecord_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Vnumber" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Date" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ChequeNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Bank" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Org" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Branch" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Account" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PaidTo" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Control" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Category" Nullable="true" MaxLength="50" />
+    <Property Type="Int64" Name="Amount" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Rupees" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="filterDate" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="createAT" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="isPending" Nullable="true" />
+    <Property Type="Boolean" Name="isCancel" Nullable="true" />
+    <Property Type="DateTime" Name="pdcDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="isMultiplecheque" Nullable="true" />
+    <Property Type="Int32" Name="taxPercentage" Nullable="true" />
+    <Property Type="Int32" Name="TaxAmount" Nullable="true" />
+    <Property Type="Int32" Name="id1" Nullable="false" />
+    <Property Type="String" Name="Bank1" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Total_Bank_Details_Result">
+    <Property Type="String" Name="Vnumber" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Date" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PaidTo" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Control" Nullable="true" MaxLength="500" />
+    <Property Type="Int64" Name="Amount" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="Total_Bank_Pending_Details_Result">
+    <Property Type="String" Name="Vnumber" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Date" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PaidTo" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Control" Nullable="true" MaxLength="500" />
+    <Property Type="Int64" Name="Amount" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="Total_Cash_Details_Result">
+    <Property Type="String" Name="Vnumber" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Date" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PaidTo" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Control" Nullable="true" MaxLength="500" />
+    <Property Type="Int64" Name="Amount" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="Total_Cash_Pending_Details_Result">
+    <Property Type="String" Name="Vnumber" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Date" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PaidTo" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Control" Nullable="true" MaxLength="500" />
+    <Property Type="Int64" Name="Amount" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+  </ComplexType>
+</Schema>

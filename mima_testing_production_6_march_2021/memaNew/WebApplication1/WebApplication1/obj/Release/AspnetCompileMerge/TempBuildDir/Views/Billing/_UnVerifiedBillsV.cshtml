@@ -1,0 +1,77 @@
+﻿@*@model IEnumerable<WebApplication1.Models.Billing_UnVerified>*@
+@model IEnumerable<WebApplication1.Models.sp_BillingsUVList_ORDER_BY_desc_Result>
+<table class="table table-bordered" id="myTable" style="font-size:12px">
+    <thead>
+        <tr>
+            <th>Bill_id</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Control</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            string cls = "";
+            string dis = "";
+            if (Convert.ToBoolean(item.isCancell))
+            {
+                cls = "yesCancel";
+                dis = "makeDisable";
+            }
+            else
+            {
+                cls = "noCancel";
+                dis = "NOmakeDisable";
+            }
+
+            string amount = string.Format("{0:#,0}", (item.Amount == null ? 0 : item.Amount));     // 123,000,000
+            <tr>
+                <td class="@cls">@item.Bill_id</td>
+                <td class="@cls">@item.Name</td>
+                <td class="@cls">@item.Category</td>
+                <td class="@cls">@item.Control</td>
+                <td class="@cls">@amount</td>
+                <td class="@cls">@String.Format("{0:dd/MM/yyyy}", @item.Date)</td>
+
+
+                <td>
+                    <div class="btn-group">
+                        <a href="~/Billing/AddUnv/image/@item.imgPath" target="_blank" class="btn btn-primary" id="@item.id">Image</a>
+                        <a href="#" class="btn btn-primary viewbtn BtnEdit" isMove="0" id="@item.id">View</a>
+                        @if (item.isMove == false)
+                        {
+                            <a href="#" class="btn btn-primary  movebtn BtnEdit @dis" isMove="1" id="@item.id">Move</a>
+                        }
+                        else
+                        {
+                            <a href="#" class="btn btn-primary movebtn @dis" style="opacity: 0.65;cursor:not-allowed">Moved</a>
+                        }
+
+                       @if (Convert.ToBoolean(item.isCancell))
+                       {
+                        <a href="javascript:;" class="btn btn-primary @dis">Cancel</a>
+                       }
+                       else
+                       {
+                        <a href="@Url.Action("CancelUnvBill", "Billing", new { id = item.id , table = "Billing_UnVerified" })" class="btn btn-primary  BtnCancel @dis" isCancel="0" id="@item.id">Cancel</a>
+                       }
+                       
+                        @*<a href="@Url.Action("BankPaymentVoucherSubmitByID", "Edit", new { id = item.Bank_ID })" Class="btn btn-primary" pendingRecordId="@item.Bank_ID">Submit</a>*@
+
+                    </div>
+                </td>
+            </tr>
+        }
+
+
+
+    </tbody>
+</table>
+
+
+
+
