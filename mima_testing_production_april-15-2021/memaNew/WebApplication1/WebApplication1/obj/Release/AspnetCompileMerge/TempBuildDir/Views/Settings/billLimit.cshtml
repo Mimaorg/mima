@@ -1,0 +1,117 @@
+﻿@model IEnumerable<WebApplication1.Models.Paid_to_Details>
+@{
+    //ViewBag.Title = "pendingRecord";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pending Records</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mima Construction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>*@
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
+    @*devextreme*@
+    <script>window.jQuery || document.write(decodeURIComponent('%3Cscript src="js/jquery.min.js"%3E%3C/script%3E'))</script>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/20.1.3/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/20.1.3/css/dx.light.css" />
+    <script src="https://cdn3.devexpress.com/jslib/20.1.3/js/dx.all.js"></script>
+    @*devextreme*@
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="~/Scripts/AjaxHelper.js"></script>
+    <script src="~/Scripts/ChartsHelper.js"></script>
+</head>
+<body style="background-color:#add8e6">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+
+                @{
+                    Html.RenderPartial("~/Views/Shared/navBar.cshtml");
+                }
+                </div>
+
+            </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Apply Bill Limit</h3>
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="limit">Limit:</label>
+                        <input type="number" class="form-control" value="@ViewBag.limit" required id="limit">
+                    </div>
+                    <button type="button" id="addlimit" class="btn btn-primary">Apply</button>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+    <div id="ModelPop4Bank"></div>
+    <script>
+        $(document).ready(function () {
+            $("#addlimit").click(function () {
+           // $("body").on("click", "#addlimit", function () {
+                debugger;
+               
+                var dataType = "json";
+                var postType = "POST";
+                var Controller = "Settings";
+                var Method = "addLimit"
+                var data = {};
+                data.limit = parseInt($("#limit").val());
+                data.id = 1;
+
+                $.ajax({
+                    type: postType,
+                    url: "/" + Controller + "/" + Method,
+                    datatype: dataType,
+                    contentType:'application/json; charset=utf-8',
+                    data: JSON.stringify(data),
+                    success: function (d) {
+                        
+                    },
+                    error: function (error) {
+                        debugger;
+                        console.log(error);
+                    }
+                });
+            })
+
+        })
+                
+    </script>
+
+</body>
+</html>
